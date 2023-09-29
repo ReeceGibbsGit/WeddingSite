@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #3d9970;
+$secondary-color: #a8bcb7;
+
+@font-face {
+  font-family: "Southland";
+  src: url("/assets/fonts/Southland.ttf");
+}
+
+body {
+  background-image: url("/assets/images/eucalyptus-bg.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: "Southland";
+  font-size: 4rem;
+}
