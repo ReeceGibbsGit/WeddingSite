@@ -1,4 +1,13 @@
 <div class="image-container">
   <img [src]="imageUrl" alt="Hero Banner" />
-  <h1 class="image-title">{{ title }}</h1>
+  <h1
+    class="image-title"
+    [ngClass]="{
+      left: titlePosition === 'left',
+      center: titlePosition === 'center',
+      right: titlePosition === 'right'
+    }"
+  >
+    {{ title }}
+  </h1>
 </div>

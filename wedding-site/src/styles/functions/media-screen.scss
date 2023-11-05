@@ -1,0 +1,27 @@
+@import "../settings/breakpoints";
+
+@mixin device-type($device) {
+  @if $device == mobile {
+    @media screen and (min-width: $mobile-bp) {
+      @content;
+    }
+  } @else if $device == mobile-landscape {
+    @media screen and (min-width: $mobile-landscape-bp) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media screen and (min-width: $tablet-bp) {
+      @content;
+    }
+  } @else if $device == tablet-landscape {
+    @media screen and (min-width: $tablet-landscape-bp) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media screen and (min-width: $desktop-bp) {
+      @content;
+    }
+  } @else {
+    @warn "The device `#{$device}` is not supported by the respond-to mixin.";
+  }
+}

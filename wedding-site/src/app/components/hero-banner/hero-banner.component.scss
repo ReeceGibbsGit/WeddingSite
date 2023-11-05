@@ -1,11 +1,18 @@
-$container-height: 26rem;
+@import "src/styles/functions/media-screen";
+
+$base-container-height: 15rem;
+$desktop-container-height: 18rem;
 
 :host {
   .image-container {
     text-align: center;
     width: 100%;
-    height: $container-height;
     overflow: hidden;
+    height: $base-container-height;
+
+    @include device-type(desktop) {
+      height: $desktop-container-height;
+    }
 
     img {
       width: 100%;
@@ -16,12 +23,34 @@ $container-height: 26rem;
 
     .image-title {
       position: absolute;
-      top: calc($container-height/2);
-      left: 50%;
-      transform: translate(-50%, -50%);
       color: white;
-      padding: 1.25rem 2.5rem;
-      border-radius: 1.25rem;
+      margin: 0;
+      padding: 0 2.5rem;
+      top: calc($base-container-height/2);
+
+      @include device-type(desktop) {
+        top: calc($desktop-container-height/2);
+        font-size: 3rem;
+      }
+
+      &.left {
+        left: 0;
+        transform: translate(0, -50%);
+        padding-right: 0;
+        max-width: 33.33%;
+      }
+
+      &.center {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &.right {
+        right: 0;
+        max-width: 33.33%;
+        transform: translate(0, -50%);
+        padding-left: 0;
+      }
     }
   }
 }

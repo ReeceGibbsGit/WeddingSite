@@ -5,14 +5,9 @@ import { AppComponent } from './app.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroBannerComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, HeroBannerComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
