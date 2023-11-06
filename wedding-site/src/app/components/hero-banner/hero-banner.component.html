@@ -1,6 +1,7 @@
 <div class="image-container">
-  <img [src]="imageUrl" alt="Hero Banner" />
+  <img data-test-id="hero-banner-image" [src]="imageUrl" alt="Hero Banner" />
   <h1
+    data-test-id="hero-banner-title"
     class="image-title"
     [ngClass]="{
       left: titlePosition === 'left',
