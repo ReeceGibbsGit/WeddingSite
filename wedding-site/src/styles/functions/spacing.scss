@@ -1,0 +1,6 @@
+@import "../settings/spacing";
+@import "./map-deep-get";
+
+@function spacing($name) {
+  @return map-deep-get($spacing, $name);
+}

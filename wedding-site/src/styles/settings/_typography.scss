@@ -3,6 +3,8 @@
   src: url("/assets/fonts/Southland.ttf");
 }
 
-h1 {
-  font-family: "Southland";
-}
+$typography: (
+  heading--1: (
+    font-family: "Southland",
+  ),
+);

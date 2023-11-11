@@ -1,0 +1,6 @@
+@import "../settings/color";
+@import "./map-deep-get";
+
+@function color($category, $name) {
+  @return map-deep-get($colors, $category, $name);
+}

@@ -1,9 +1,15 @@
-@import "src/styles/functions/media-screen";
+@import "src/styles/mixins/media-screen";
+@import "src/styles/functions/spacing";
+@import "src/styles/mixins/typography";
 
-$base-container-height: 15rem;
-$desktop-container-height: 18rem;
+$base-container-height: calc(spacing(56) + spacing(4));
+$desktop-container-height: calc(spacing(64) + spacing(8));
 
 :host {
+  h1 {
+    @include typography(heading--1);
+  }
+
   .image-container {
     text-align: center;
     width: 100%;
@@ -25,12 +31,12 @@ $desktop-container-height: 18rem;
       position: absolute;
       color: white;
       margin: 0;
-      padding: 0 2.5rem;
+      padding: 0 spacing(10);
       top: calc($base-container-height/2);
 
       @include device-type(desktop) {
         top: calc($desktop-container-height/2);
-        font-size: 3rem;
+        font-size: spacing(12);
       }
 
       &.left {

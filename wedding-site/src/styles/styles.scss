@@ -1,10 +1,6 @@
-@import "./settings/typography";
-@import "./settings/color";
+@import "./functions/map-deep-get";
+@import "./mixins/typography";
 
-body {
-  background-image: url("/assets/images/eucalyptus-bg.png");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-attachment: fixed;
+h1 {
+  @include typography(heading--1);
 }

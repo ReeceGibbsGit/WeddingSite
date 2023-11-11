@@ -1,24 +1,25 @@
 @import "../settings/breakpoints";
+@import "../functions/map-deep-get";
 
 @mixin device-type($device) {
   @if $device == mobile {
-    @media screen and (min-width: $mobile-bp) {
+    @media screen and (min-width: map-deep-get($breakpoints, mobile)) {
       @content;
     }
   } @else if $device == mobile-landscape {
-    @media screen and (min-width: $mobile-landscape-bp) {
+    @media screen and (min-width: map-deep-get($breakpoints, mobile-landscape)) {
       @content;
     }
   } @else if $device == tablet {
-    @media screen and (min-width: $tablet-bp) {
+    @media screen and (min-width: map-deep-get($breakpoints, tablet)) {
       @content;
     }
   } @else if $device == tablet-landscape {
-    @media screen and (min-width: $tablet-landscape-bp) {
+    @media screen and (min-width: map-deep-get($breakpoints, tablet-landscape)) {
       @content;
     }
   } @else if $device == desktop {
-    @media screen and (min-width: $desktop-bp) {
+    @media screen and (min-width: map-deep-get($breakpoints, desktop)) {
       @content;
     }
   } @else {
