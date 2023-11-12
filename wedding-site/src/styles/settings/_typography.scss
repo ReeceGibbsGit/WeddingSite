@@ -3,8 +3,16 @@
   src: url("/assets/fonts/Southland.ttf");
 }
 
+@font-face {
+  font-family: "Typewriter";
+  src: url("/assets/fonts/ElegantTwLight.ttf");
+}
+
 $typography: (
-  heading--1: (
+  primary: (
+    font-family: "Typewriter",
+  ),
+  secondary: (
     font-family: "Southland",
   ),
 );

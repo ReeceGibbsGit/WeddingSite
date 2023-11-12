@@ -33,14 +33,19 @@ describe('HeroBannerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the title when it is defined', () => {
-    const { fixture } = setup({ props: { title: 'Test Title' } });
+  it('should have the is floating content attribute set when the prop is defined', () => {
+    const { fixture } = setup({
+      props: { isFloatingContent: true },
+    });
     fixture.detectChanges();
 
-    const imageTitleElement: HTMLElement =
-      fixture.nativeElement.querySelector('.image-title');
+    const heroBannerElement: HTMLElement = fixture.nativeElement;
 
-    expect(imageTitleElement.textContent?.trim()).toBe('Test Title');
+    const isFloatingContentAttribute = heroBannerElement.getAttribute(
+      'is-floating-content'
+    );
+
+    expect(isFloatingContentAttribute).toBe('true');
   });
 
   it('should set the image url when it is defined', () => {
@@ -60,19 +65,21 @@ describe('HeroBannerComponent', () => {
 
   describe('when the titlePosition property is defined', () => {
     it.each([['left'], ['center'], ['right']])(
-      'sets the %i class in image-title element',
-      (position) => {
+      'sets the %i class in banner-content element',
+      (alignment) => {
         const { fixture } = setup({
-          props: { titlePosition: position as Alignment },
+          props: { contentAlignment: alignment as Alignment },
         });
         fixture.detectChanges();
 
-        const imageTitleElement: HTMLElement =
+        const bannerContentElement: HTMLElement =
           fixture.nativeElement.querySelector(
-            '[data-test-id="hero-banner-title"]'
+            '[data-test-id="hero-banner-content"]'
           );
 
-        expect(imageTitleElement.className).toBe(`image-title ${position}`);
+        expect(bannerContentElement.className).toBe(
+          `banner-content ${alignment}`
+        );
       }
     );
   });

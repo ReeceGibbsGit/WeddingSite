@@ -1,14 +1,14 @@
-<div class="image-container">
+<div data-test-id="hero-banner-container" class="banner-container">
   <img data-test-id="hero-banner-image" [src]="imageUrl" alt="Hero Banner" />
-  <h1
-    data-test-id="hero-banner-title"
-    class="image-title"
+  <div
+    data-test-id="hero-banner-content"
+    class="banner-content"
     [ngClass]="{
-      left: titlePosition === 'left',
-      center: titlePosition === 'center',
-      right: titlePosition === 'right'
+      left: contentAlignment === 'left',
+      center: contentAlignment === 'center',
+      right: contentAlignment === 'right',
     }"
   >
-    {{ title }}
-  </h1>
+    <ng-content></ng-content>
+  </div>
 </div>

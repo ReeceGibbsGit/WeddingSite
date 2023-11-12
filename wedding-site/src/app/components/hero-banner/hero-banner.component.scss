@@ -1,19 +1,14 @@
 @import "src/styles/mixins/media-screen";
 @import "src/styles/functions/spacing";
-@import "src/styles/mixins/typography";
+@import "src/styles/mixins/display-flex";
 
-$base-container-height: calc(spacing(56) + spacing(4));
+$base-container-height: calc(spacing(32) + spacing(4));
 $desktop-container-height: calc(spacing(64) + spacing(8));
 
 :host {
-  h1 {
-    @include typography(heading--1);
-  }
-
-  .image-container {
+  .banner-container {
     text-align: center;
     width: 100%;
-    overflow: hidden;
     height: $base-container-height;
 
     @include device-type(desktop) {
@@ -26,36 +21,64 @@ $desktop-container-height: calc(spacing(64) + spacing(8));
       object-fit: cover;
       object-position: 50% 20%;
     }
+  }
 
-    .image-title {
-      position: absolute;
-      color: white;
-      margin: 0;
-      padding: 0 spacing(10);
-      top: calc($base-container-height/2);
+  &[is-floating-content="true"] {
+    .banner-container {
+      overflow: hidden;
 
-      @include device-type(desktop) {
-        top: calc($desktop-container-height/2);
-        font-size: spacing(12);
+      .banner-content {
+        position: absolute;
+        color: white;
+        margin: 0;
+        padding: 0 spacing(10);
+        top: calc($base-container-height/2);
+
+        @include device-type(desktop) {
+          top: calc($desktop-container-height/2);
+          font-size: spacing(12);
+        }
+
+        &.left {
+          left: 0;
+          transform: translate(0, -50%);
+          padding-right: 0;
+          max-width: 33.33%;
+        }
+
+        &.center {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &.right {
+          right: 0;
+          max-width: 33.33%;
+          transform: translate(0, -50%);
+          padding-left: 0;
+        }
       }
+    }
+  }
 
-      &.left {
-        left: 0;
-        transform: translate(0, -50%);
-        padding-right: 0;
-        max-width: 33.33%;
-      }
+  &[is-floating-content="false"] {
+    .banner-container {
+      @include display-flex(column);
 
-      &.center {
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+      .banner-content {
+        padding-top: spacing(8);
 
-      &.right {
-        right: 0;
-        max-width: 33.33%;
-        transform: translate(0, -50%);
-        padding-left: 0;
+        &.left {
+          align-self: start;
+        }
+
+        &.center {
+          align-self: center;
+        }
+
+        &.right {
+          align-self: end;
+        }
       }
     }
   }

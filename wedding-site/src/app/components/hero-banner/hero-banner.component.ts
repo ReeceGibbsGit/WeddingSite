@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 export type Alignment = 'left' | 'center' | 'right';
 
@@ -8,8 +8,13 @@ export type Alignment = 'left' | 'center' | 'right';
   styleUrls: ['./hero-banner.component.scss'],
 })
 export class HeroBannerComponent {
-  @Input() title: string | undefined;
-  @Input() titlePosition: Alignment = 'center';
+  @HostBinding('attr.is-floating-content')
+  @Input()
+  isFloatingContent = false;
+
+  @Input()
+  contentAlignment: Alignment = 'center';
+
   @Input() imageUrl: string =
     'https://via.placeholder.com/1920x1080/eee?text=16:9';
 }
