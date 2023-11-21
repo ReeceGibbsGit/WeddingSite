@@ -1,11 +1,17 @@
 @import "../styles/03_mixins/media-screen";
+@import "../styles/02_functions/spacing";
 
 :host {
   .hero-banner {
     h1 {
       @include device-type(desktop) {
-        font-size: 6rem;
+        font-size: spacing(24);
       }
     }
+  }
+
+  .container {
+    padding-top: spacing(4);
+    text-align: center;
   }
 }

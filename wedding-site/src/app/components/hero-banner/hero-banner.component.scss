@@ -1,6 +1,6 @@
-@import "src/styles/03_mixins/media-screen";
-@import "src/styles/02_functions/spacing";
-@import "src/styles/03_mixins/display-flex";
+@import "../../../styles/03_mixins/media-screen";
+@import "../../../styles/02_functions/spacing";
+@import "../../../styles/03_mixins/display-flex";
 
 $base-container-height: calc(spacing(32) + spacing(4));
 $large-container-height: calc(spacing(64) + spacing(8));

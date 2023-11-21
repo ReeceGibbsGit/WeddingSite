@@ -1,5 +1,6 @@
 @import "../01_settings/typography";
 @import "../03_mixins/media-screen";
+@import "../02_functions/spacing";
 
 @mixin font-family($style) {
   @if not index(map-keys($typography), $style) {
@@ -10,23 +11,23 @@
 
 @mixin typography() {
   h1 {
-    font-size: 2.5rem;
+    font-size: spacing(10);
     @include font-family(secondary);
 
     @include device-type(tablet) {
-      font-size: 4.5rem;
+      font-size: spacing(18);
     }
   }
 
   p {
-    font-size: 0.625rem;
+    font-size: calc((spacing(2) + spacing(3)) / 2);
 
     @include device-type(tablet) {
-      font-size: 1rem;
+      font-size: spacing(4);
     }
 
     @include device-type(desktop) {
-      font-size: 1.25rem;
+      font-size: spacing(5);
     }
   }
 
