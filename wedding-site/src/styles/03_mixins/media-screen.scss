@@ -1,5 +1,5 @@
-@import "../settings/breakpoints";
-@import "../functions/map-deep-get";
+@import "../01_settings/breakpoints";
+@import "../02_functions/map-deep-get";
 
 @mixin device-type($device) {
   @if $device == mobile {

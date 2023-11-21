@@ -1,0 +1,11 @@
+@import "../styles/03_mixins/media-screen";
+
+:host {
+  .hero-banner {
+    h1 {
+      @include device-type(desktop) {
+        font-size: 6rem;
+      }
+    }
+  }
+}

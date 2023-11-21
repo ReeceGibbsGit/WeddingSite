@@ -1,0 +1,41 @@
+@import "../01_settings/typography";
+@import "../03_mixins/media-screen";
+
+@mixin font-family($style) {
+  @if not index(map-keys($typography), $style) {
+    @error "[Mixin: Typography] #{$style} does not exist in typography";
+  }
+  font-family: map-deep-get($typography, $style, font-family);
+}
+
+@mixin typography() {
+  h1 {
+    font-size: 2.5rem;
+    @include font-family(secondary);
+
+    @include device-type(tablet) {
+      font-size: 4.5rem;
+    }
+  }
+
+  p {
+    font-size: 0.625rem;
+
+    @include device-type(tablet) {
+      font-size: 1rem;
+    }
+
+    @include device-type(desktop) {
+      font-size: 1.25rem;
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @include font-family(primary);
+  }
+}

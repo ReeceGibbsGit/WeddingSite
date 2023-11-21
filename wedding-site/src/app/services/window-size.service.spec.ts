@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-
-import { DeviceType, WindowSizeService } from './window-size.service';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { WindowSizeService } from './window-size.service';
 import { WINDOW } from '@ng-web-apis/common';
+import * as rxjs from 'rxjs';
 
 function setup(
   providers?: { provide: any; useValue: any }[]
@@ -22,27 +22,20 @@ describe('WindowSizeService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('when the breakpoints are hit', () => {
-    it.each([
-      [DeviceType.Narrow, 124],
-      [DeviceType.Mobile, 400],
-      [DeviceType.MobileLandscape, 700],
-      [DeviceType.Tablet, 800],
-      [DeviceType.TabletLandscape, 1200],
-      [DeviceType.Desktop, 1500],
-    ])(
-      'returns device type %i when window size is %i',
-      (expectedDeviceType, windowSize) => {
-        const service = setup([
-          {
-            provide: WINDOW,
-            useValue: { innerWidth: windowSize },
-          },
-        ]);
+  it('should return the device width when getWindowwSize is called', fakeAsync(() => {
+    const mockWidth = 450;
+    const service = setup([
+      {
+        provide: WINDOW,
+        useValue: { innerWidth: mockWidth },
+      },
+    ]);
 
-        const deviceType = service.getDeviceType();
-        expect(deviceType).toBe(expectedDeviceType);
-      }
-    );
-  });
+    jest.spyOn(rxjs, 'fromEvent').mockReturnValue(rxjs.of(mockWidth));
+
+    service.getWindowSize().subscribe((width) => {
+      tick();
+      expect(width).toBe(mockWidth);
+    });
+  }));
 });

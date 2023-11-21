@@ -1,8 +1,0 @@
-@import "../settings/typography";
-
-@mixin typography($style) {
-  @if not index(map-keys($typography), $style) {
-    @error "[Mixin: Typography] #{$style} does not exist in typography";
-  }
-  font-family: map-deep-get($typography, $style, font-family);
-}
