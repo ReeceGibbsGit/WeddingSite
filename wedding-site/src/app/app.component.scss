@@ -11,7 +11,16 @@
   }
 
   .container {
-    padding-top: spacing(4);
+    padding-top: spacing(8);
     text-align: center;
+
+    @include device-type(desktop) {
+      max-width: 1000px;
+    }
+  }
+
+  .separator {
+    margin: spacing(8) auto;
+    width: 50%;
   }
 }
