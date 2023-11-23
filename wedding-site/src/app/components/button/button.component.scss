@@ -1,0 +1,10 @@
+@import "../../../styles/02_functions/spacing";
+
+:host {
+  .bi {
+    margin: spacing(1);
+    &::before {
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@mixin buttons() {
+  button {
+    margin-top: spacing(4);
+    border-radius: 0;
+  }
+}

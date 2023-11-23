@@ -10,6 +10,10 @@
 }
 
 @mixin typography() {
+  * {
+    @include font-family(primary);
+  }
+
   h1 {
     font-size: spacing(12);
 
@@ -53,9 +57,5 @@
   h5,
   h6 {
     @include font-family(secondary);
-  }
-
-  p {
-    @include font-family(primary);
   }
 }

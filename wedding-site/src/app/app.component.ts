@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'wedding-site';
+  public title = 'wedding-site';
   private windowResizeSubscription: Subscription = new Subscription();
 
   constructor(private windowSizeService: WindowSizeService) {}

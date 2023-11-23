@@ -1,0 +1,11 @@
+<button
+  type="button"
+  [ngClass]="{
+    'btn-outline-dark': type === 'primary',
+    'btn-dark': type === 'secondary'
+  }"
+  class="btn"
+>
+  <i *ngIf="icon" [ngClass]="'bi-' + icon" class="bi"></i>
+  <ng-content></ng-content>
+</button>
