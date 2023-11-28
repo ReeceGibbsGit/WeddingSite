@@ -35,7 +35,9 @@
   <section class="rsvp-section">
     <h2>RSVP</h2>
     <p>Please let us know if you are coming by clicking the button below.</p>
-    <app-button (clickEvent)="openModal(rsvpModalContent)" icon="envelope-heart"
+    <app-button
+      (clickEvent)="openModal('We\'d love to see you there', rsvpModalContent)"
+      icon="envelope-heart"
       >RSVP</app-button
     >
   </section>
@@ -68,5 +70,22 @@
 </div>
 
 <ng-template #rsvpModalContent>
-  <h1>This is the rsvp content</h1>
+  <div class="rsvp-modal-content">
+    <h3>James Thomson</h3>
+    <p>and</p>
+    <h3>Angela Clark</h3>
+    <br /><br />
+    SATURDAY THE 25TH OF JANUARY 2025
+    <br />
+    at 3:00pm
+    <br />
+    Haycroft Farm
+    <br />
+    District Road P1622, Howick, 3290, Kwa-Zulu Natal
+    <br />
+    <br />
+    RECEPTION TO FOLLOW
+    <br />
+    from 5:00pm to 1:00am
+  </div>
 </ng-template>

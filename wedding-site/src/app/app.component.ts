@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { WindowSizeService } from './services/window-size.service';
 import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -32,8 +32,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public openModal(content: any) {
+  public openModal(title: string, content: TemplateRef<any>) {
     const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.title = title;
     modalRef.componentInstance.content = content;
   }
 }

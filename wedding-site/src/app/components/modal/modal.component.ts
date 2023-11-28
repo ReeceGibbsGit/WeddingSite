@@ -7,6 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
+  @Input() public title: string = 'Title here';
   @Input() public content: TemplateRef<any> | null = null;
 
   constructor(public activeModal: NgbActiveModal) {}
