@@ -35,7 +35,9 @@
   <section class="rsvp-section">
     <h2>RSVP</h2>
     <p>Please let us know if you are coming by clicking the button below.</p>
-    <app-button icon="envelope-heart">RSVP</app-button>
+    <app-button (clickEvent)="openModal()" icon="envelope-heart"
+      >RSVP</app-button
+    >
   </section>
   <hr class="separator" />
   <section class="welcome-section">

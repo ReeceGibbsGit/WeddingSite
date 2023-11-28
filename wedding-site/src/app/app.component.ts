@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WindowSizeService } from './services/window-size.service';
 import { Subscription } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +13,12 @@ export class AppComponent implements OnInit, OnDestroy {
   public title = 'wedding-site';
   private windowResizeSubscription: Subscription = new Subscription();
 
-  constructor(private windowSizeService: WindowSizeService) {}
+  constructor(
+    private windowSizeService: WindowSizeService,
+    private modalService: NgbModal
+  ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.windowResizeSubscription = this.windowSizeService
       .getWindowSize()
       .subscribe((windowWidth) => {
@@ -21,9 +26,14 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.windowResizeSubscription) {
       this.windowResizeSubscription.unsubscribe();
     }
+  }
+
+  public openModal() {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.name = 'World';
   }
 }
