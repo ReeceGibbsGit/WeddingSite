@@ -35,7 +35,7 @@
   <section class="rsvp-section">
     <h2>RSVP</h2>
     <p>Please let us know if you are coming by clicking the button below.</p>
-    <app-button (clickEvent)="openModal()" icon="envelope-heart"
+    <app-button (clickEvent)="openModal(rsvpModalContent)" icon="envelope-heart"
       >RSVP</app-button
     >
   </section>
@@ -66,3 +66,7 @@
   </section>
   <hr class="separator" />
 </div>
+
+<ng-template #rsvpModalContent>
+  <h1>This is the rsvp content</h1>
+</ng-template>

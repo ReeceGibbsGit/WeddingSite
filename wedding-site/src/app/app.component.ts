@@ -32,8 +32,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public openModal() {
+  public openModal(content: any) {
     const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.content = content;
   }
 }
