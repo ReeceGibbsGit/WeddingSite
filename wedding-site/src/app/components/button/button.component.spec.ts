@@ -88,4 +88,18 @@ describe('ButtonComponent', () => {
       expect(iconElement.classList).toContain(`bi-${iconName}`);
     });
   });
+
+  describe('the clickEvent emitter', () => {
+    it('should emit an event when the button is clicked', () => {
+      const { fixture, component } = setup();
+      fixture.detectChanges();
+
+      jest.spyOn(component.clickEvent, 'emit');
+
+      const buttonElement = fixture.nativeElement.querySelector('button');
+      buttonElement.click();
+
+      expect(component.clickEvent.emit).toHaveBeenCalled();
+    });
+  });
 });

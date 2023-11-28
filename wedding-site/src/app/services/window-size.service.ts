@@ -27,7 +27,7 @@ const DEBOUNCE = 100;
 export class WindowSizeService {
   constructor(@Inject(WINDOW) private window: Window) {}
 
-  getWindowSize(): Observable<number> {
+  public getWindowSize(): Observable<number> {
     return fromEvent(this.window, 'resize').pipe(
       debounceTime(DEBOUNCE),
       map(() => this.window.innerWidth),
