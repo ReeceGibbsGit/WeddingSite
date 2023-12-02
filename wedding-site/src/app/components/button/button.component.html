@@ -2,7 +2,8 @@
   type="button"
   [ngClass]="{
     'btn-outline-dark': type === 'primary',
-    'btn-dark': type === 'secondary'
+    'btn-dark': type === 'secondary',
+    'btn-sm': size === 'small',
   }"
   class="btn"
   (click)="onClick($event)"

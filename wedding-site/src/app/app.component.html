@@ -4,8 +4,8 @@
   contentAlignment="center"
   imageUrl="assets/images/hero.jpg"
 >
-  <h1>We're getting married</h1>
-  <p>25-01-25, 3pm | Haycroft Farm</p>
+  <h1 class="hero-banner__header-primary">Save the date</h1>
+  <p class="hero-banner__header-secondary">25 | 01 | 25</p>
 </app-hero-banner>
 
 <div class="container">
@@ -24,47 +24,14 @@
       Haycroft Farm
       <br />
       District Road P1622, Howick, 3290, Kwa-Zulu Natal
-      <br />
-      <br />
-      RECEPTION TO FOLLOW
-      <br />
-      from 5:00pm to 1:00am
     </p>
   </section>
   <hr class="separator" />
-  <section class="rsvp-section">
-    <h2>RSVP</h2>
-    <p>Please let us know if you are coming by clicking the button below.</p>
-    <app-button
-      (clickEvent)="openModal('We\'d love to see you there', rsvpModalContent)"
-      icon="envelope-heart"
-      >RSVP</app-button
+  <section class="celebrate-section">
+    <h2>Click below to celebrate</h2>
+    <app-button (clickEvent)="celebrate()" icon="balloon-heart"
+      >Celebrate</app-button
     >
-  </section>
-  <hr class="separator" />
-  <section class="welcome-section">
-    <h2>Our Story</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-      volutpat, nisl a luctus fermentum, velit orci varius nisl, eget
-      condimentum libero erat ac enim. In hac habitasse platea dictumst. Sed
-      bibendum venenatis dolor, et ultricies velit auctor a. Pellentesque
-      habitant morbi tristique senectus et netus et malesuada fames ac turpis
-      egestas. Fusce at quam vitae nisl cursus vestibulum. Suspendisse potenti.
-      Cras eget sem nec dolor tincidunt consequat et ac lacus. Mauris
-      condimentum, metus in hendrerit molestie, lectus nisi varius nunc, eu
-      dictum leo dolor at quam. Nunc consequat, enim id facilisis auctor, tortor
-      sem tempus mauris, eu hendrerit augue nisl sit amet metus. Etiam non est
-      magna. Nullam sed sem vitae enim tempus aliquam. Aenean dignissim, felis
-      nec suscipit vehicula, orci augue fermentum lacus, nec consequat sapien
-      libero in nisi. Vivamus nec nunc a libero convallis bibendum. Proin
-      ullamcorper, urna quis ultrices elementum, enim ligula aliquam dui, sed
-      tristique libero odio eget lorem. Sed ut elit vitae urna aliquet
-      tristique. Integer id nunc sit amet nunc vehicula facilisis. Sed et augue
-      vel tortor ullamcorper sollicitudin. Ut et augue felis. Nulla facilisi.
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-      ac turpis egestas.
-    </p>
   </section>
   <hr class="separator" />
 </div>

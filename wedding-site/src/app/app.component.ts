@@ -3,6 +3,7 @@ import { WindowSizeService } from './services/window-size.service';
 import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
+import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-root',
@@ -36,5 +37,13 @@ export class AppComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.title = title;
     modalRef.componentInstance.content = content;
+  }
+
+  public celebrate() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
   }
 }
