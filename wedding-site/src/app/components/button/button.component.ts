@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 export type ButtonType = 'primary' | 'secondary';
-export type ButtonSize = 'large' | 'small';
+export type ButtonSize = 'large' | 'medium' | 'small';
 
 @Component({
   selector: 'app-button',
@@ -16,7 +16,7 @@ export type ButtonSize = 'large' | 'small';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() public size: ButtonSize = 'large';
+  @Input() public size: ButtonSize = 'medium';
   @Input() public type: ButtonType = 'primary';
   @Input() public icon: string | undefined;
   @Output() public clickEvent = new EventEmitter<Event>();
