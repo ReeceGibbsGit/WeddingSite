@@ -23,8 +23,61 @@
       <br />
       Haycroft Farm
       <br />
-      District Road P1622, Howick, 3290, Kwa-Zulu Natal
+      Midlands, KZN
     </p>
+  </section>
+  <hr class="separator" />
+  <section class="details-section">
+    <h2>Enter your details below</h2>
+    <p>
+      Please provide your name and email address in the form<br />below to
+      recieve a formal invitation in the weeks to come.
+    </p>
+    <div class="details-section__form">
+      <div
+        [ngClass]="{
+          'input-group-sm': (isSmallDevice$ | async)
+        }"
+        class="input-group mb-3"
+      >
+        <span class="input-group-text" id="first-name-input">First name</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="First name"
+          aria-describedby="first-name-input"
+        />
+      </div>
+      <div
+        [ngClass]="{
+          'input-group-sm': (isSmallDevice$ | async)
+        }"
+        class="input-group mb-3"
+      >
+        <span class="input-group-text" id="last-name-input">Last name</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="First name"
+          aria-describedby="last-name-input"
+        />
+      </div>
+      <div
+        [ngClass]="{
+          'input-group-sm': (isSmallDevice$ | async)
+        }"
+        class="input-group mb-3"
+      >
+        <span class="input-group-text" id="email-input">Email</span>
+        <input
+          type="email"
+          class="form-control"
+          aria-label="Email"
+          aria-describedby="email-input"
+        />
+      </div>
+      <app-button icon="envelope-heart">Send</app-button>
+    </div>
   </section>
   <hr class="separator" />
   <section class="celebrate-section">
