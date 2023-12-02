@@ -29,7 +29,10 @@
   <hr class="separator" />
   <section class="celebrate-section">
     <h2>Click below to celebrate</h2>
-    <app-button (clickEvent)="celebrate()" icon="balloon-heart"
+    <app-button
+      [size]="(isSmallDevice$ | async) ? 'small' : 'large'"
+      (clickEvent)="celebrate()"
+      icon="balloon-heart"
       >Celebrate</app-button
     >
   </section>

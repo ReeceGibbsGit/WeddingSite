@@ -34,4 +34,17 @@ export class WindowSizeService {
       startWith(this.window.innerWidth)
     );
   }
+
+  public isWidthLessThanBreakpoint(
+    deviceType: DeviceType
+  ): Observable<boolean> {
+    return this.getWindowSize().pipe(
+      map((windowWidth) => {
+        const breakpoint = WINDOW_BREAKPOINTS.find(
+          (bp) => bp.type === deviceType
+        );
+        return breakpoint ? windowWidth < breakpoint.minWidth : false;
+      })
+    );
+  }
 }

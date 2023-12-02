@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
-import { WindowSizeService } from './services/window-size.service';
-import { Subscription } from 'rxjs';
+import { DeviceType, WindowSizeService } from './services/window-size.service';
+import { Observable, Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 import confetti from 'canvas-confetti';
@@ -10,27 +10,17 @@ import confetti from 'canvas-confetti';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
   public title = 'wedding-site';
-  private windowResizeSubscription: Subscription = new Subscription();
+  public isSmallDevice$: Observable<boolean>;
 
   constructor(
     private windowSizeService: WindowSizeService,
     private modalService: NgbModal
-  ) {}
-
-  public ngOnInit(): void {
-    this.windowResizeSubscription = this.windowSizeService
-      .getWindowSize()
-      .subscribe((windowWidth) => {
-        // use this in the future
-      });
-  }
-
-  public ngOnDestroy(): void {
-    if (this.windowResizeSubscription) {
-      this.windowResizeSubscription.unsubscribe();
-    }
+  ) {
+    this.isSmallDevice$ = this.windowSizeService.isWidthLessThanBreakpoint(
+      DeviceType.Tablet
+    );
   }
 
   public openModal(title: string, content: TemplateRef<any>) {
