@@ -22,4 +22,4 @@ writeFile(targetPath, envConfigFile, { encoding: "utf8" })
       `Angular environment file generated correctly at ${targetPath} \n`
     )
   )
-  .catch((err: any) => console.error(err));
+  .catch((err) => console.error(err));
