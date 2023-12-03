@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 
-export type ButtonType = 'primary' | 'secondary';
+export type ButtonType = 'primary' | 'secondary' | 'success' | 'failure';
 export type ButtonSize = 'large' | 'medium' | 'small';
 
 @Component({
@@ -19,6 +19,8 @@ export class ButtonComponent {
   @Input() public size: ButtonSize = 'medium';
   @Input() public type: ButtonType = 'primary';
   @Input() public icon: string | undefined;
+  @Input() public disabled: boolean = false;
+
   @Output() public clickEvent = new EventEmitter<Event>();
 
   public onClick(event: Event): void {

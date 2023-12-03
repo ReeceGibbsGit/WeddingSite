@@ -3,10 +3,13 @@
   [ngClass]="{
     'btn-outline-dark': type === 'primary',
     'btn-dark': type === 'secondary',
+    'btn-outline-success': type === 'success',
+    'btn-outline-danger': type === 'failure',
     'btn-sm': size === 'small',
     'btn-lg': size === 'large'
   }"
   class="btn"
+  [disabled]="disabled"
   (click)="onClick($event)"
 >
   <i *ngIf="icon" [ngClass]="'bi-' + icon" class="bi"></i>

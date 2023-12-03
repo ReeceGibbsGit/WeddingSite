@@ -33,7 +33,7 @@
       Please provide your name and email address in the form<br />below to
       recieve a formal invitation in the weeks to come.
     </p>
-    <div class="details-section__form">
+    <form #emailForm="ngForm" class="details-section__form">
       <div
         [ngClass]="{
           'input-group-sm': (isSmallDevice$ | async)
@@ -42,8 +42,12 @@
       >
         <span class="input-group-text" id="first-name-input">First name</span>
         <input
+          required
+          name="firstName"
           type="text"
           class="form-control"
+          [(ngModel)]="formData.firstName"
+          [disabled]="emailFormState.isSendSuccess"
           aria-label="First name"
           aria-describedby="first-name-input"
         />
@@ -56,8 +60,12 @@
       >
         <span class="input-group-text" id="last-name-input">Last name</span>
         <input
+          required
+          name="lastName"
           type="text"
           class="form-control"
+          [(ngModel)]="formData.lastName"
+          [disabled]="emailFormState.isSendSuccess"
           aria-label="First name"
           aria-describedby="last-name-input"
         />
@@ -70,14 +78,26 @@
       >
         <span class="input-group-text" id="email-input">Email</span>
         <input
+          required
+          email
+          name="email"
           type="email"
           class="form-control"
+          [(ngModel)]="formData.email"
+          [disabled]="emailFormState.isSendSuccess"
           aria-label="Email"
           aria-describedby="email-input"
         />
       </div>
-      <app-button icon="envelope-heart">Send</app-button>
-    </div>
+      <app-button
+        [type]="emailFormState.buttonState.buttonType"
+        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        [disabled]="!emailForm.valid || emailFormState.isButtonClicked"
+        (clickEvent)="handleSendEmail()"
+        [icon]="emailFormState.buttonState.buttonIcon"
+        >{{ emailFormState.buttonState.buttonText }}</app-button
+      >
+    </form>
   </section>
   <hr class="separator" />
   <section class="celebrate-section">
