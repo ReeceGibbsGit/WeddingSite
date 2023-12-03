@@ -1,7 +1,8 @@
-  import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { assignProps } from 'src/helpers/test-helpers';
+import { FormsModule } from '@angular/forms';
 
 interface TestSetup {
   fixture: ComponentFixture<AppComponent>;
@@ -17,6 +18,7 @@ function setup({
 } = {}): TestSetup {
   TestBed.configureTestingModule({
     declarations: [AppComponent, HeroBannerComponent],
+    imports: [FormsModule],
     providers: [...(providers || [])],
   });
 

@@ -6,10 +6,16 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
 import { ButtonComponent } from './components/button/button.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HeroBannerComponent, ButtonComponent, ModalComponent],
-  imports: [BrowserModule, NgbModule],
+  declarations: [
+    AppComponent,
+    HeroBannerComponent,
+    ButtonComponent,
+    ModalComponent,
+  ],
+  imports: [BrowserModule, NgbModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
