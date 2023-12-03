@@ -7,7 +7,7 @@ const targetPath = "./src/environments/environment.prod.ts";
 // Read the environment variables you need
 const envConfigFile = `export const environment = {
   production: true,
-  publicKey: '${process.env.PUBLIC_KEY}'
+  emailClientPublicKey: '${process.env.EMAIL_CLIENT_PUBLIC_KEY}'
 };
 `;
 

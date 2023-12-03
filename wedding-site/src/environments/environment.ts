@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  emailClientPublicKey: '${PUBLIC_KEY}',
+  emailClientPublicKey: '${EMAIL_CLIENT_PUBLIC_KEY}',
 };
