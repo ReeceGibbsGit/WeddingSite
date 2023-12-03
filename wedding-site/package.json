@@ -4,10 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "prebuild": "node set-env.js",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "private": true,
   "dependencies": {

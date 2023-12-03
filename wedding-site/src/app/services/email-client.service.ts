@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import emailjs from '@emailjs/browser';
 import { from, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
+const publicKey = environment.emailClientPublicKey;
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmailClientService {
   constructor() {
-    emailjs.init('');
+    emailjs.init(publicKey);
   }
 
   public send(payload: Record<string, unknown>): Observable<boolean> {
