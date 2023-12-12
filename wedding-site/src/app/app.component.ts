@@ -1,10 +1,11 @@
-import { Component, TemplateRef } from '@angular/core';
-import { DeviceType, WindowSizeService } from './services/window-size.service';
+import { Component } from '@angular/core';
+import {
+  DeviceType,
+  WindowSizeService,
+} from './services/window-size/window-size.service';
 import { Observable, take } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './components/modal/modal.component';
 import confetti from 'canvas-confetti';
-import { EmailClientService } from './services/email-client.service';
+import { EmailClientService } from './services/email-client/email-client.service';
 import {
   EmailFormState,
   EmailTemplate,
@@ -27,18 +28,11 @@ export class AppComponent {
 
   constructor(
     private windowSizeService: WindowSizeService,
-    private modalService: NgbModal,
     private emailClientService: EmailClientService
   ) {
     this.isSmallDevice$ = this.windowSizeService.isWidthLessThanBreakpoint(
       DeviceType.Tablet
     );
-  }
-
-  public openModal(title: string, content: TemplateRef<any>) {
-    const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.title = title;
-    modalRef.componentInstance.content = content;
   }
 
   public celebrate() {
