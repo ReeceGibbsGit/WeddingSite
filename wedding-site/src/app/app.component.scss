@@ -1,6 +1,7 @@
 @import "../styles/03_mixins/media-screen";
 @import "../styles/02_functions/spacing";
 @import "../styles/03_mixins/display-flex";
+@import "../styles/03_mixins/typography.scss";
 
 :host {
   .container {
@@ -16,6 +17,21 @@
   .separator {
     margin: spacing(8) auto;
     width: 50%;
+  }
+
+  .story-section {
+    &__gee-sign-off {
+      @include font-family(secondary);
+      font-size: spacing(6);
+
+      @include device-type(tablet) {
+        font-size: spacing(10);
+      }
+
+      @include device-type(desktop) {
+        font-size: spacing(12);
+      }
+    }
   }
 
   .details-section {
@@ -71,8 +87,4 @@
       font-size: spacing(8);
     }
   }
-}
-
-.rsvp-modal-content {
-  text-align: center;
 }
