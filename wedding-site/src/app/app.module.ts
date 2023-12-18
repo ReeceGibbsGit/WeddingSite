@@ -6,9 +6,15 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
 import { ButtonComponent } from './components/button/button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { RsvpComponent } from './components/rsvp/rsvp.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroBannerComponent, ButtonComponent],
+  declarations: [
+    AppComponent,
+    HeroBannerComponent,
+    ButtonComponent,
+    RsvpComponent,
+  ],
   imports: [BrowserModule, NgbModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

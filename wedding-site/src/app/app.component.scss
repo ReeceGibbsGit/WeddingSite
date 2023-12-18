@@ -33,33 +33,6 @@
       }
     }
   }
-
-  .details-section {
-    &__form {
-      margin: 0 auto;
-      padding-top: spacing(3);
-      max-width: calc(spacing(64) + spacing(8) + spacing(3));
-
-      @include device-type(tablet) {
-        max-width: calc(spacing(64) * 2);
-      }
-
-      .input-group-text {
-        font-size: spacing(2);
-        min-width: spacing(14);
-
-        @include device-type(tablet) {
-          font-size: spacing(3);
-          min-width: calc(spacing(18) + spacing(4));
-        }
-
-        @include device-type(desktop) {
-          font-size: spacing(4);
-          min-width: calc(spacing(24) + spacing(4));
-        }
-      }
-    }
-  }
 }
 
 .hero-banner {
