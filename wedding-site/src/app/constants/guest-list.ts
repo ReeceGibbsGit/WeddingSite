@@ -1,4 +1,13 @@
-const INVITES = [
+export interface Guest {
+  name: string;
+}
+
+export interface Invite {
+  id: string;
+  guests: Array<Guest>;
+}
+
+const INVITES: Array<Invite> = [
   {
     id: 'b6e307aa-3cfd-464b-af9c-94310c2ac2e6',
     guests: [{ name: 'David Baytopp' }, { name: 'Lesley Baytopp' }],
@@ -63,7 +72,7 @@ const INVITES = [
   },
   {
     id: '09eee6f2-0af8-428a-b9e7-2a4963a2525c',
-    guests: [{ name: 'Liane Williams' }, { name: 'Dane Williams' }],
+    guests: [{ name: 'Liane Walker' }, { name: 'Dane Walker' }],
   },
   {
     id: '1d1e66ab-57a3-46d9-b2dd-7eb9294d9590',
@@ -156,7 +165,7 @@ const INVITES = [
   },
   {
     id: '5fce0d45-5d8e-491f-a725-d48ab42211a7',
-    guests: [{ name: 'Caitlin Bell' }, { name: 'Mitchell Autin' }],
+    guests: [{ name: 'Caitlin Bell' }, { name: 'Mitchell Austin' }],
   },
   {
     id: 'c2bff678-fa31-4b5a-876c-ce52860c9585',
@@ -164,7 +173,7 @@ const INVITES = [
   },
   {
     id: '15e84dd7-e1ed-4d6a-b53f-fbee54a39bbd',
-    guests: [{ name: 'Matthew Barberi' }],
+    guests: [{ name: 'Matthew Barbieri' }],
   },
   {
     id: 'c1a42194-a087-42f6-a5ad-ba468a46c010',
@@ -176,11 +185,11 @@ const INVITES = [
   },
   {
     id: '37b4e814-27cb-4200-8048-a3205c487e81',
-    guests: [{ name: 'Zania Weirich' }, { name: 'Patrick Weirich' }],
-  },
-  {
-    id: 'd187b053-8f1f-4952-8226-6c3269985495',
-    guests: [{ name: 'Erin Weirich' }],
+    guests: [
+      { name: 'Zania Weirich' },
+      { name: 'Patrick Weirich' },
+      { name: 'Erin Weirich' },
+    ],
   },
   {
     id: '8e73adb0-7d2d-420f-bfdd-5ec7e0c0e1b5',

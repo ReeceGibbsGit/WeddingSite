@@ -26,16 +26,18 @@
       Midlands, KZN
     </p>
   </section>
-  <hr class="separator" />
-  <section class="details-section">
-    <app-rsvp>
-      <h2>RSVP</h2>
-      <p>
-        Please provide your name and email address in the form<br />below to
-        recieve a formal invitation in the weeks to come.
-      </p>
-    </app-rsvp>
-  </section>
+  <ng-container *ngIf="this.inviteId">
+    <hr class="separator" />
+    <section class="details-section">
+      <app-rsvp [inviteId]="this.inviteId">
+        <h2>RSVP</h2>
+        <p>
+          Please provide your name and email address in the form<br />below to
+          recieve a formal invitation in the weeks to come.
+        </p>
+      </app-rsvp>
+    </section>
+  </ng-container>
   <hr class="separator" />
   <section class="story-section">
     <h2>Our Story</h2>

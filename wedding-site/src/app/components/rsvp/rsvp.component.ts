@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, take } from 'rxjs';
+import { INVITES, Invite } from 'src/app/constants/guest-list';
 import {
   EmailFormState,
   EmailTemplate,
@@ -17,10 +18,13 @@ import {
   templateUrl: './rsvp.component.html',
   styleUrls: ['./rsvp.component.scss'],
 })
-export class RsvpComponent {
+export class RsvpComponent implements OnInit {
+  @Input() public inviteId = '';
+
   public isSmallDevice$: Observable<boolean>;
   public formData: EmailTemplate = defaultEmailTemplate;
   public emailFormState: EmailFormState = defaultEmailFormState;
+  public inviteDetails: Invite | undefined;
 
   constructor(
     private windowSizeService: WindowSizeService,
@@ -29,6 +33,10 @@ export class RsvpComponent {
     this.isSmallDevice$ = this.windowSizeService.isWidthLessThanBreakpoint(
       DeviceType.Tablet
     );
+  }
+
+  public ngOnInit(): void {
+    this.inviteDetails = INVITES.find((i) => i.id === this.inviteId);
   }
 
   // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux

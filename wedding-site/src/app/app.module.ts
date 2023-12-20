@@ -7,6 +7,9 @@ import { ButtonComponent } from './components/button/button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [{ path: '', component: AppComponent }];
 
 @NgModule({
   declarations: [
@@ -15,7 +18,12 @@ import { RsvpComponent } from './components/rsvp/rsvp.component';
     ButtonComponent,
     RsvpComponent,
   ],
-  imports: [BrowserModule, NgbModule, FormsModule],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

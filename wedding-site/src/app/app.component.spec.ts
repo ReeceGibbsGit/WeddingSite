@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { assignProps } from 'src/helpers/test-helpers';
-import { FormsModule } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 interface TestSetup {
   fixture: ComponentFixture<AppComponent>;
   component: AppComponent;
@@ -18,8 +18,16 @@ function setup({
 } = {}): TestSetup {
   TestBed.configureTestingModule({
     declarations: [AppComponent, HeroBannerComponent],
-    imports: [FormsModule],
-    providers: [...(providers || [])],
+    imports: [],
+    providers: [
+      ...(providers || []),
+      {
+        provide: ActivatedRoute,
+        useValue: {
+          queryParams: of({ invite: '1234' }),
+        },
+      },
+    ],
   });
 
   const fixture = TestBed.createComponent(AppComponent);

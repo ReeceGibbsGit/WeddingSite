@@ -1,6 +1,10 @@
 @import "../../../styles/02_functions/spacing";
 
 :host {
+  .btn {
+    margin: 0;
+  }
+
   .bi {
     margin: spacing(1);
     &::before {
