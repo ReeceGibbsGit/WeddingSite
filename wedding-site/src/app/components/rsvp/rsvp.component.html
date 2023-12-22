@@ -10,11 +10,14 @@
           [ngClass]="{
             'striked-out': guest.isComing === false
           }"
+          class="rsvp__guest-list-item"
           >{{ guest.name }}</span
         >
         <div>
           <app-button
-            *ngIf="guest.isComing === false"
+            [ngClass]="{
+              hidden: guest.isComing
+            }"
             class="rsvp__guest-list-btn"
             type="success"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
@@ -22,7 +25,9 @@
             >Re-add</app-button
           >
           <app-button
-            *ngIf="guest.isComing"
+            [ngClass]="{
+              hidden: guest.isComing === false
+            }"
             class="rsvp__guest-list-btn"
             type="failure"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
@@ -32,6 +37,24 @@
         </div>
       </li>
     </ul>
+    <div class="rsvp__responses">
+      <app-button
+        [ngClass]="{
+          hidden: isPositiveRsvp === false
+        }"
+        type="success"
+        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        >RSVP Yes</app-button
+      >
+      <app-button
+        [ngClass]="{
+          hidden: isPositiveRsvp
+        }"
+        type="failure"
+        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        >RSVP No</app-button
+      >
+    </div>
   </ng-container>
 </div>
 

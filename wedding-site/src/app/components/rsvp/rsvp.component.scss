@@ -4,13 +4,30 @@
 :host {
   .rsvp {
     &__guest-list {
-      max-width: calc(spacing(64) * 2);
+      max-width: calc(spacing(56) * 2);
       margin: 0 auto;
-      padding-top: 12px;
+      padding-top: spacing(4);
+
+      &-item {
+        font-size: calc(spacing(3));
+
+        @include device-type(tablet) {
+          font-size: spacing(4);
+        }
+
+        @include device-type(desktop) {
+          font-size: spacing(5);
+        }
+      }
 
       &-btn {
         padding-left: spacing(4);
       }
+    }
+
+    &__responses {
+      margin: 0 auto;
+      padding-top: spacing(8);
     }
 
     &__form {
@@ -41,6 +58,10 @@
 
   .striked-out {
     text-decoration: line-through;
+  }
+
+  .hidden {
+    display: none;
   }
 
   .error {

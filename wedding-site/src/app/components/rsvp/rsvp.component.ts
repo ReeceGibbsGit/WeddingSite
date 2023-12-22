@@ -31,6 +31,7 @@ export class RsvpComponent implements OnInit {
   public formData: EmailTemplate = defaultEmailTemplate;
   public emailFormState: EmailFormState = defaultEmailFormState;
   public inviteDetails: Invite | undefined;
+  public isPositiveRsvp = true;
 
   constructor(
     private windowSizeService: WindowSizeService,
@@ -52,6 +53,13 @@ export class RsvpComponent implements OnInit {
     );
   }
 
+  private checkPositiveRsvp(): void {
+    const guestsAttending =
+      this.inviteDetails?.guests.filter((guest) => guest.isComing).length ?? 0;
+
+    this.isPositiveRsvp = guestsAttending > 0;
+  }
+
   public removeGuest(guestId: string): void {
     if (this.inviteDetails) {
       const guestIndex = this.getGuestIndex(guestId);
@@ -60,6 +68,8 @@ export class RsvpComponent implements OnInit {
         this.inviteDetails.guests[guestIndex].isComing = false;
       }
     }
+
+    this.checkPositiveRsvp();
   }
 
   public addGuest(guestId: string): void {
@@ -70,6 +80,8 @@ export class RsvpComponent implements OnInit {
         this.inviteDetails.guests[guestIndex].isComing = true;
       }
     }
+
+    this.checkPositiveRsvp();
   }
 
   // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
