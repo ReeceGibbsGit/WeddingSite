@@ -4,7 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { INVITES, Invite } from 'src/app/constants/guest-list';
 import {
   EmailFormState,
@@ -60,24 +60,12 @@ export class RsvpComponent implements OnInit {
     this.isPositiveRsvp = guestsAttending > 0;
   }
 
-  public removeGuest(guestId: string): void {
+  public handleGuestChange(guestId: string, isRemoving: boolean = false): void {
     if (this.inviteDetails) {
       const guestIndex = this.getGuestIndex(guestId);
 
       if (guestIndex > -1) {
-        this.inviteDetails.guests[guestIndex].isComing = false;
-      }
-    }
-
-    this.checkPositiveRsvp();
-  }
-
-  public addGuest(guestId: string): void {
-    if (this.inviteDetails) {
-      const guestIndex = this.getGuestIndex(guestId);
-
-      if (guestIndex > -1) {
-        this.inviteDetails.guests[guestIndex].isComing = true;
+        this.inviteDetails.guests[guestIndex].isComing = !isRemoving;
       }
     }
 

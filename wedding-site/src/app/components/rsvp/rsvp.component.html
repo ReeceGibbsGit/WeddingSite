@@ -21,7 +21,7 @@
             class="rsvp__guest-list-btn"
             type="success"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-            (clickEvent)="addGuest(guest.id)"
+            (clickEvent)="handleGuestChange(guest.id)"
             >Re-add</app-button
           >
           <app-button
@@ -31,7 +31,7 @@
             class="rsvp__guest-list-btn"
             type="failure"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-            (clickEvent)="removeGuest(guest.id)"
+            (clickEvent)="handleGuestChange(guest.id, true)"
             >Remove</app-button
           >
         </div>
