@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { INVITES, Invite } from 'src/app/constants/guest-list';
 import {
@@ -17,6 +22,7 @@ import {
   selector: 'app-rsvp',
   templateUrl: './rsvp.component.html',
   styleUrls: ['./rsvp.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RsvpComponent implements OnInit {
   @Input() public inviteId = '';
@@ -39,56 +45,83 @@ export class RsvpComponent implements OnInit {
     this.inviteDetails = INVITES.find((i) => i.id === this.inviteId);
   }
 
-  // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
-  public handleSendEmail() {
-    this.emailFormState = {
-      ...this.emailFormState,
-      isButtonClicked: true,
-      isLoading: true,
-      buttonState: {
-        ...this.emailFormState.buttonState,
-        buttonIcon: 'send',
-        buttonText: 'Sending...',
-      },
-    };
-
-    this.emailClientService
-      .send({
-        first_name: this.formData.firstName.trim(),
-        last_name: this.formData.lastName.trim(),
-        email: this.formData.email.trim(),
-      })
-      .pipe(take(1))
-      .subscribe((success) => {
-        if (success) {
-          this.emailFormState = {
-            ...this.emailFormState,
-            isLoading: false,
-            isSendSuccess: true,
-            buttonState: {
-              ...this.emailFormState.buttonState,
-              buttonType: 'success',
-              buttonIcon: 'hand-thumbs-up',
-              buttonText: 'Sent',
-            },
-          };
-
-          console.log('Email send succeeded');
-        } else {
-          this.emailFormState = {
-            ...this.emailFormState,
-            isLoading: false,
-            isSendFailure: true,
-            buttonState: {
-              ...this.emailFormState.buttonState,
-              buttonType: 'failure',
-              buttonIcon: 'hand-thumbs-down',
-              buttonText: 'Failed',
-            },
-          };
-
-          console.error('Email send failed');
-        }
-      });
+  private getGuestIndex(guestId: string): number {
+    return (
+      this.inviteDetails?.guests.findIndex((guest) => guest.id === guestId) ??
+      -1
+    );
   }
+
+  public removeGuest(guestId: string): void {
+    if (this.inviteDetails) {
+      const guestIndex = this.getGuestIndex(guestId);
+
+      if (guestIndex > -1) {
+        this.inviteDetails.guests[guestIndex].isComing = false;
+      }
+    }
+  }
+
+  public addGuest(guestId: string): void {
+    if (this.inviteDetails) {
+      const guestIndex = this.getGuestIndex(guestId);
+
+      if (guestIndex > -1) {
+        this.inviteDetails.guests[guestIndex].isComing = true;
+      }
+    }
+  }
+
+  // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
+  // public handleSendEmail() {
+  //   this.emailFormState = {
+  //     ...this.emailFormState,
+  //     isButtonClicked: true,
+  //     isLoading: true,
+  //     buttonState: {
+  //       ...this.emailFormState.buttonState,
+  //       buttonIcon: 'send',
+  //       buttonText: 'Sending...',
+  //     },
+  //   };
+
+  //   this.emailClientService
+  //     .send({
+  //       first_name: this.formData.firstName.trim(),
+  //       last_name: this.formData.lastName.trim(),
+  //       email: this.formData.email.trim(),
+  //     })
+  //     .pipe(take(1))
+  //     .subscribe((success) => {
+  //       if (success) {
+  //         this.emailFormState = {
+  //           ...this.emailFormState,
+  //           isLoading: false,
+  //           isSendSuccess: true,
+  //           buttonState: {
+  //             ...this.emailFormState.buttonState,
+  //             buttonType: 'success',
+  //             buttonIcon: 'hand-thumbs-up',
+  //             buttonText: 'Sent',
+  //           },
+  //         };
+
+  //         console.log('Email send succeeded');
+  //       } else {
+  //         this.emailFormState = {
+  //           ...this.emailFormState,
+  //           isLoading: false,
+  //           isSendFailure: true,
+  //           buttonState: {
+  //             ...this.emailFormState.buttonState,
+  //             buttonType: 'failure',
+  //             buttonIcon: 'hand-thumbs-down',
+  //             buttonText: 'Failed',
+  //           },
+  //         };
+
+  //         console.error('Email send failed');
+  //       }
+  //     });
+  // }
 }

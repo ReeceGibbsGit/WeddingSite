@@ -1,84 +1,37 @@
 <div class="rsvp">
   <ng-content></ng-content>
-  <ng-container *ngIf="this.inviteDetails; else inviteNotFound">
+  <ng-container *ngIf="inviteDetails; else inviteNotFound">
     <ul class="rsvp__guest-list list-group">
       <li
-        *ngFor="let guest of this.inviteDetails.guests"
+        *ngFor="let guest of inviteDetails.guests"
         class="list-group-item d-flex justify-content-between align-items-center"
       >
-        {{ guest.name }}
-        <app-button
-          type="failure"
-          [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-          >Remove</app-button
+        <span
+          [ngClass]="{
+            'striked-out': guest.isComing === false
+          }"
+          >{{ guest.name }}</span
         >
+        <div>
+          <app-button
+            *ngIf="guest.isComing === false"
+            class="rsvp__guest-list-btn"
+            type="success"
+            [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+            (clickEvent)="addGuest(guest.id)"
+            >Re-add</app-button
+          >
+          <app-button
+            *ngIf="guest.isComing"
+            class="rsvp__guest-list-btn"
+            type="failure"
+            [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+            (clickEvent)="removeGuest(guest.id)"
+            >Remove</app-button
+          >
+        </div>
       </li>
     </ul>
-    <!-- <form #emailForm="ngForm" class="rsvp__form">
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
-      >
-        <span class="input-group-text" id="first-name-input">First name</span>
-        <input
-          required
-          name="firstName"
-          type="text"
-          class="form-control"
-          [(ngModel)]="formData.firstName"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="First name"
-          aria-describedby="first-name-input"
-        />
-      </div>
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
-      >
-        <span class="input-group-text" id="last-name-input">Last name</span>
-        <input
-          required
-          name="lastName"
-          type="text"
-          class="form-control"
-          [(ngModel)]="formData.lastName"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="First name"
-          aria-describedby="last-name-input"
-        />
-      </div>
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
-      >
-        <span class="input-group-text" id="email-input">Email</span>
-        <input
-          required
-          email
-          name="email"
-          type="email"
-          class="form-control"
-          [(ngModel)]="formData.email"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="Email"
-          aria-describedby="email-input"
-        />
-      </div>
-      <app-button
-        [type]="emailFormState.buttonState.buttonType"
-        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-        [disabled]="!emailForm.valid || emailFormState.isButtonClicked"
-        (clickEvent)="handleSendEmail()"
-        [icon]="emailFormState.buttonState.buttonIcon"
-        >{{ emailFormState.buttonState.buttonText }}</app-button
-      >
-    </form> -->
   </ng-container>
 </div>
 

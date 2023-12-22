@@ -6,6 +6,11 @@
     &__guest-list {
       max-width: calc(spacing(64) * 2);
       margin: 0 auto;
+      padding-top: 12px;
+
+      &-btn {
+        padding-left: spacing(4);
+      }
     }
 
     &__form {
@@ -32,6 +37,10 @@
         }
       }
     }
+  }
+
+  .striked-out {
+    text-decoration: line-through;
   }
 
   .error {
