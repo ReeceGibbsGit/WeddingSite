@@ -75,13 +75,8 @@ export class RsvpComponent implements OnInit {
   }
 
   // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
+  // TODO - refactor this when you have time. It's shit
   public handleSendEmail() {
-    const response: EmailTemplate = {
-      result: this.isPositiveRsvp ? 'YES' : 'NO',
-      name: this.primaryGuest ?? 'UNKNOWN',
-      details: this.isPositiveRsvp ? this.inviteDetails?.guests.join(', ') : '',
-    };
-
     this.emailFormState = {
       ...this.emailFormState,
       isButtonClicked: true,
@@ -94,7 +89,13 @@ export class RsvpComponent implements OnInit {
     };
 
     this.emailClientService
-      .send({ response })
+      .send({
+        result: this.isPositiveRsvp ? 'YES' : 'NO',
+        name: this.primaryGuest ?? 'UNKNOWN',
+        details: this.isPositiveRsvp
+          ? this.inviteDetails?.guests.map((guest) => guest.name).join(', ')
+          : '',
+      })
       .pipe(take(1))
       .subscribe((success) => {
         if (success) {

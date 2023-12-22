@@ -15,7 +15,7 @@ export type EmailButtonIcon =
   | 'envelope-heart'
   | 'send';
 
-export type EmailButtonText = 'Send' | 'Sending...' | 'Sent' | 'Failed';
+export type EmailButtonText = 'RSVP' | 'Sending...' | 'Sent' | 'Failed';
 
 export interface EmailButtonState {
   buttonType: ButtonType;
@@ -45,6 +45,6 @@ export const defaultEmailFormState: EmailFormState = {
   buttonState: {
     buttonType: 'primary',
     buttonIcon: 'envelope-heart',
-    buttonText: 'Send',
+    buttonText: 'RSVP',
   },
 };

@@ -39,22 +39,11 @@
     </ul>
     <div class="rsvp__responses">
       <app-button
-        [ngClass]="{
-          hidden: isPositiveRsvp === false
-        }"
-        type="success"
+        [type]="emailFormState.buttonState.buttonType"
         [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
         (clickEvent)="handleSendEmail()"
-        >RSVP Yes</app-button
-      >
-      <app-button
-        [ngClass]="{
-          hidden: isPositiveRsvp
-        }"
-        type="failure"
-        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-        (clickEvent)="handleSendEmail()"
-        >RSVP No</app-button
+        [icon]="emailFormState.buttonState.buttonIcon"
+        >{{ emailFormState.buttonState.buttonText }}</app-button
       >
     </div>
   </ng-container>

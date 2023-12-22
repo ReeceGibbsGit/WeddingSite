@@ -23,8 +23,3 @@ export class EmailClientService {
     );
   }
 }
-
-// emailjs.send("service_kd7nr4h","template_cwo0fbe",{
-//   name: "Test RSVP",
-//   details: "Armando Homann, Andrea Homann",
-//   });
