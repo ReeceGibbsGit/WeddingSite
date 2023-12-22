@@ -44,6 +44,7 @@
         }"
         type="success"
         [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        (clickEvent)="handleSendEmail()"
         >RSVP Yes</app-button
       >
       <app-button
@@ -52,6 +53,7 @@
         }"
         type="failure"
         [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        (clickEvent)="handleSendEmail()"
         >RSVP No</app-button
       >
     </div>

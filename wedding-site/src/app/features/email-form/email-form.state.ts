@@ -1,10 +1,12 @@
 import { ButtonType } from 'src/app/components/button/button.component';
 
+export type RsvpResult = 'YES' | 'NO';
+
 // TODO: Handle the state of this feature more appropriately with something like redux
 export interface EmailTemplate {
-  firstName: string;
-  lastName: string;
-  email: string;
+  result: RsvpResult;
+  name: string | undefined;
+  details: string | undefined;
 }
 
 export type EmailButtonIcon =
@@ -30,9 +32,9 @@ export interface EmailFormState {
 }
 
 export const defaultEmailTemplate: EmailTemplate = {
-  firstName: '',
-  lastName: '',
-  email: '',
+  result: 'YES',
+  name: '',
+  details: '',
 };
 
 export const defaultEmailFormState: EmailFormState = {

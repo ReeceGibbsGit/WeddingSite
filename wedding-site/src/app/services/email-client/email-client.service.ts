@@ -16,10 +16,15 @@ export class EmailClientService {
 
   public send(payload: Record<string, unknown>): Observable<boolean> {
     return from(
-      emailjs.send('service_kd7nr4h', 'template_mak2x2d', payload)
+      emailjs.send('service_kd7nr4h', 'template_cwo0fbe', payload)
     ).pipe(
       map(() => true),
       catchError(() => of(false))
     );
   }
 }
+
+// emailjs.send("service_kd7nr4h","template_cwo0fbe",{
+//   name: "Test RSVP",
+//   details: "Armando Homann, Andrea Homann",
+//   });

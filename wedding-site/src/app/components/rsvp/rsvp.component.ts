@@ -4,7 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { INVITES, Invite } from 'src/app/constants/guest-list';
 import {
   EmailFormState,
@@ -31,6 +31,7 @@ export class RsvpComponent implements OnInit {
   public formData: EmailTemplate = defaultEmailTemplate;
   public emailFormState: EmailFormState = defaultEmailFormState;
   public inviteDetails: Invite | undefined;
+  public primaryGuest: string | undefined;
   public isPositiveRsvp = true;
 
   constructor(
@@ -44,6 +45,7 @@ export class RsvpComponent implements OnInit {
 
   public ngOnInit(): void {
     this.inviteDetails = INVITES.find((i) => i.id === this.inviteId);
+    this.primaryGuest = this.inviteDetails?.guests[0].name;
   }
 
   private getGuestIndex(guestId: string): number {
@@ -73,55 +75,57 @@ export class RsvpComponent implements OnInit {
   }
 
   // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
-  // public handleSendEmail() {
-  //   this.emailFormState = {
-  //     ...this.emailFormState,
-  //     isButtonClicked: true,
-  //     isLoading: true,
-  //     buttonState: {
-  //       ...this.emailFormState.buttonState,
-  //       buttonIcon: 'send',
-  //       buttonText: 'Sending...',
-  //     },
-  //   };
+  public handleSendEmail() {
+    const response: EmailTemplate = {
+      result: this.isPositiveRsvp ? 'YES' : 'NO',
+      name: this.primaryGuest ?? 'UNKNOWN',
+      details: this.isPositiveRsvp ? this.inviteDetails?.guests.join(', ') : '',
+    };
 
-  //   this.emailClientService
-  //     .send({
-  //       first_name: this.formData.firstName.trim(),
-  //       last_name: this.formData.lastName.trim(),
-  //       email: this.formData.email.trim(),
-  //     })
-  //     .pipe(take(1))
-  //     .subscribe((success) => {
-  //       if (success) {
-  //         this.emailFormState = {
-  //           ...this.emailFormState,
-  //           isLoading: false,
-  //           isSendSuccess: true,
-  //           buttonState: {
-  //             ...this.emailFormState.buttonState,
-  //             buttonType: 'success',
-  //             buttonIcon: 'hand-thumbs-up',
-  //             buttonText: 'Sent',
-  //           },
-  //         };
+    this.emailFormState = {
+      ...this.emailFormState,
+      isButtonClicked: true,
+      isLoading: true,
+      buttonState: {
+        ...this.emailFormState.buttonState,
+        buttonIcon: 'send',
+        buttonText: 'Sending...',
+      },
+    };
 
-  //         console.log('Email send succeeded');
-  //       } else {
-  //         this.emailFormState = {
-  //           ...this.emailFormState,
-  //           isLoading: false,
-  //           isSendFailure: true,
-  //           buttonState: {
-  //             ...this.emailFormState.buttonState,
-  //             buttonType: 'failure',
-  //             buttonIcon: 'hand-thumbs-down',
-  //             buttonText: 'Failed',
-  //           },
-  //         };
+    this.emailClientService
+      .send({ response })
+      .pipe(take(1))
+      .subscribe((success) => {
+        if (success) {
+          this.emailFormState = {
+            ...this.emailFormState,
+            isLoading: false,
+            isSendSuccess: true,
+            buttonState: {
+              ...this.emailFormState.buttonState,
+              buttonType: 'success',
+              buttonIcon: 'hand-thumbs-up',
+              buttonText: 'Sent',
+            },
+          };
 
-  //         console.error('Email send failed');
-  //       }
-  //     });
-  // }
+          console.log('Email send succeeded');
+        } else {
+          this.emailFormState = {
+            ...this.emailFormState,
+            isLoading: false,
+            isSendFailure: true,
+            buttonState: {
+              ...this.emailFormState.buttonState,
+              buttonType: 'failure',
+              buttonIcon: 'hand-thumbs-down',
+              buttonText: 'Failed',
+            },
+          };
+
+          console.error('Email send failed');
+        }
+      });
+  }
 }
