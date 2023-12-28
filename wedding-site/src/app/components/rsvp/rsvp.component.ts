@@ -7,11 +7,11 @@ import {
 import { Observable, take } from 'rxjs';
 import { INVITES, Invite } from 'src/app/constants/guest-list';
 import {
-  EmailFormState,
+  EmailState,
   EmailTemplate,
-  defaultEmailFormState,
+  defaultEmailState,
   defaultEmailTemplate,
-} from 'src/app/features/email-form/email-form.state';
+} from 'src/app/models/invite.model';
 import { EmailClientService } from 'src/app/services/email-client/email-client.service';
 import {
   DeviceType,
@@ -29,7 +29,7 @@ export class RsvpComponent implements OnInit {
 
   public isSmallDevice$: Observable<boolean>;
   public formData: EmailTemplate = defaultEmailTemplate;
-  public emailFormState: EmailFormState = defaultEmailFormState;
+  public emailFormState: EmailState = defaultEmailState;
   public inviteDetails: Invite | undefined;
   public primaryGuest: string | undefined;
   public isPositiveRsvp = true;
@@ -75,7 +75,7 @@ export class RsvpComponent implements OnInit {
   }
 
   // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
-  // TODO - refactor this when you have time. It's shit
+  // TODO: Handle this state more effectively
   public handleSendEmail() {
     this.emailFormState = {
       ...this.emailFormState,
@@ -90,11 +90,9 @@ export class RsvpComponent implements OnInit {
 
     this.emailClientService
       .send({
-        result: this.isPositiveRsvp ? 'YES' : 'NO',
-        name: this.primaryGuest ?? 'UNKNOWN',
-        details: this.isPositiveRsvp
-          ? this.inviteDetails?.guests.map((guest) => guest.name).join(', ')
-          : '',
+        result: 'YES',
+        name: 'Dale Williams',
+        details: 'Amy Williams, Nina Williams',
       })
       .pipe(take(1))
       .subscribe((success) => {

@@ -41,6 +41,7 @@
       <app-button
         [type]="emailFormState.buttonState.buttonType"
         [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        [disabled]="emailFormState.isButtonClicked"
         (clickEvent)="handleSendEmail()"
         [icon]="emailFormState.buttonState.buttonIcon"
         >{{ emailFormState.buttonState.buttonText }}</app-button

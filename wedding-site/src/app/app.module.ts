@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { inviteReducer } from './+state/reducers/invite.reducers';
 
 const routes: Routes = [{ path: '', component: AppComponent }];
 
@@ -23,6 +26,8 @@ const routes: Routes = [{ path: '', component: AppComponent }];
     NgbModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({ inviteReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

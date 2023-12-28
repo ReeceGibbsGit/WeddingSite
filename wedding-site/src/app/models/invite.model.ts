@@ -2,7 +2,6 @@ import { ButtonType } from 'src/app/components/button/button.component';
 
 export type RsvpResult = 'YES' | 'NO';
 
-// TODO: Handle the state of this feature more appropriately with something like redux
 export interface EmailTemplate {
   result: RsvpResult;
   name: string | undefined;
@@ -23,7 +22,7 @@ export interface EmailButtonState {
   buttonText: EmailButtonText;
 }
 
-export interface EmailFormState {
+export interface EmailState {
   isButtonClicked: boolean;
   isLoading: boolean;
   isSendFailure: boolean;
@@ -37,7 +36,7 @@ export const defaultEmailTemplate: EmailTemplate = {
   details: '',
 };
 
-export const defaultEmailFormState: EmailFormState = {
+export const defaultEmailState: EmailState = {
   isButtonClicked: false,
   isLoading: false,
   isSendSuccess: false,
