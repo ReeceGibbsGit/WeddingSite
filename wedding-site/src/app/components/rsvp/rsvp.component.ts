@@ -4,15 +4,16 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { sendEmail } from 'src/app/+state/actions/invite.actions';
 import { INVITES, Invite } from 'src/app/constants/guest-list';
+import * as InviteSelectors from 'src/app/+state/selectors/invite.selectors';
 import {
   EmailState,
   EmailTemplate,
-  defaultEmailState,
   defaultEmailTemplate,
 } from 'src/app/models/invite.model';
-import { EmailClientService } from 'src/app/services/email-client/email-client.service';
 import {
   DeviceType,
   WindowSizeService,
@@ -27,17 +28,18 @@ import {
 export class RsvpComponent implements OnInit {
   @Input() public inviteId = '';
 
+  public emailState$: Observable<EmailState>;
   public isSmallDevice$: Observable<boolean>;
   public formData: EmailTemplate = defaultEmailTemplate;
-  public emailFormState: EmailState = defaultEmailState;
   public inviteDetails: Invite | undefined;
   public primaryGuest: string | undefined;
   public isPositiveRsvp = true;
 
   constructor(
-    private windowSizeService: WindowSizeService,
-    private emailClientService: EmailClientService
+    private store: Store<InviteSelectors.AppState>,
+    private windowSizeService: WindowSizeService
   ) {
+    this.emailState$ = this.store.select(InviteSelectors.selectEmailState);
     this.isSmallDevice$ = this.windowSizeService.isWidthLessThanBreakpoint(
       DeviceType.Tablet
     );
@@ -74,57 +76,13 @@ export class RsvpComponent implements OnInit {
     this.checkPositiveRsvp();
   }
 
-  // TODO - https://gibbs-wedmin.atlassian.net/browse/WED-26: Implement redux
-  // TODO: Handle this state more effectively
   public handleSendEmail() {
-    this.emailFormState = {
-      ...this.emailFormState,
-      isButtonClicked: true,
-      isLoading: true,
-      buttonState: {
-        ...this.emailFormState.buttonState,
-        buttonIcon: 'send',
-        buttonText: 'Sending...',
-      },
+    const emailData: EmailTemplate = {
+      result: 'YES',
+      name: 'Dale Williams',
+      details: 'Amy Williams, Nina Williams',
     };
 
-    this.emailClientService
-      .send({
-        result: 'YES',
-        name: 'Dale Williams',
-        details: 'Amy Williams, Nina Williams',
-      })
-      .pipe(take(1))
-      .subscribe((success) => {
-        if (success) {
-          this.emailFormState = {
-            ...this.emailFormState,
-            isLoading: false,
-            isSendSuccess: true,
-            buttonState: {
-              ...this.emailFormState.buttonState,
-              buttonType: 'success',
-              buttonIcon: 'hand-thumbs-up',
-              buttonText: 'Sent',
-            },
-          };
-
-          console.log('Email send succeeded');
-        } else {
-          this.emailFormState = {
-            ...this.emailFormState,
-            isLoading: false,
-            isSendFailure: true,
-            buttonState: {
-              ...this.emailFormState.buttonState,
-              buttonType: 'failure',
-              buttonIcon: 'hand-thumbs-down',
-              buttonText: 'Failed',
-            },
-          };
-
-          console.error('Email send failed');
-        }
-      });
+    this.store.dispatch(sendEmail({ emailTemplate: emailData }));
   }
 }

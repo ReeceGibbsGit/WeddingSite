@@ -1,4 +1,4 @@
-<div class="rsvp">
+<div *ngIf="emailState$ | async as state" class="rsvp">
   <ng-content></ng-content>
   <ng-container *ngIf="inviteDetails; else inviteNotFound">
     <ul class="rsvp__guest-list list-group">
@@ -39,12 +39,12 @@
     </ul>
     <div class="rsvp__responses">
       <app-button
-        [type]="emailFormState.buttonState.buttonType"
+        [type]="state.buttonState.buttonType"
         [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-        [disabled]="emailFormState.isButtonClicked"
+        [disabled]="state.isButtonClicked"
         (clickEvent)="handleSendEmail()"
-        [icon]="emailFormState.buttonState.buttonIcon"
-        >{{ emailFormState.buttonState.buttonText }}</app-button
+        [icon]="state.buttonState.buttonIcon"
+        >{{ state.buttonState.buttonText }}</app-button
       >
     </div>
   </ng-container>

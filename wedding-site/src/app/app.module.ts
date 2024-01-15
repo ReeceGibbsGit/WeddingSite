@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { inviteReducer } from './+state/reducers/invite.reducers';
+import { InviteEffects } from './+state/effects/invite.effects';
 
 const routes: Routes = [{ path: '', component: AppComponent }];
 
@@ -26,8 +27,8 @@ const routes: Routes = [{ path: '', component: AppComponent }];
     NgbModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({ inviteReducer }),
+    EffectsModule.forRoot([InviteEffects]),
+    StoreModule.forRoot({ invite: inviteReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
