@@ -4,16 +4,28 @@ import {
   EmailButtonText,
   EmailState,
   defaultEmailState,
+  negativeRsvpState,
+  positiveRsvpState,
 } from 'src/app/models/invite.model';
 import {
   sendEmail,
   sendEmailFailure,
   sendEmailSuccess,
+  setNegativeRsvpState,
+  setPositiveRsvpState,
 } from '../actions/invite.actions';
 import { ButtonType } from 'src/app/components/button/button.component';
 
 export const inviteReducer = createReducer(
   defaultEmailState,
+  on(setPositiveRsvpState, (state: EmailState) => ({
+    ...state,
+    buttonState: positiveRsvpState,
+  })),
+  on(setNegativeRsvpState, (state: EmailState) => ({
+    ...state,
+    buttonState: negativeRsvpState,
+  })),
   on(sendEmail, (state: EmailState) => ({
     ...state,
     isButtonClicked: true,

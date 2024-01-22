@@ -1,6 +1,6 @@
 <div *ngIf="emailState$ | async as state" class="rsvp">
   <ng-content></ng-content>
-  <ng-container *ngIf="inviteDetails; else inviteNotFound">
+  <ng-container *ngIf="inviteDetails; else errorMessage">
     <ul class="rsvp__guest-list list-group">
       <li
         *ngFor="let guest of inviteDetails.guests"
@@ -21,6 +21,7 @@
             class="rsvp__guest-list-btn"
             type="success"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+            [disabled]="state.isButtonClicked"
             (clickEvent)="handleGuestChange(guest.id)"
             >Re-add</app-button
           >
@@ -30,6 +31,7 @@
             }"
             class="rsvp__guest-list-btn"
             type="failure"
+            [disabled]="state.isButtonClicked"
             [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
             (clickEvent)="handleGuestChange(guest.id, true)"
             >Remove</app-button
@@ -50,7 +52,7 @@
   </ng-container>
 </div>
 
-<ng-template #inviteNotFound>
+<ng-template #errorMessage>
   <p class="error">
     Oops... It looks like something went wrong. Please contact Reece or Gee with
     your RSVP directly.

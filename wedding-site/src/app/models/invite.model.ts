@@ -14,7 +14,12 @@ export type EmailButtonIcon =
   | 'envelope-heart'
   | 'send';
 
-export type EmailButtonText = 'RSVP' | 'Sending...' | 'Sent' | 'Failed';
+export type EmailButtonText =
+  | 'RSVP Yes'
+  | 'RSVP No'
+  | 'Sending...'
+  | 'Sent'
+  | 'Failed';
 
 export interface EmailButtonState {
   buttonType: ButtonType;
@@ -36,14 +41,22 @@ export const defaultEmailTemplate: EmailTemplate = {
   details: '',
 };
 
+export const positiveRsvpState: EmailButtonState = {
+  buttonType: 'success',
+  buttonIcon: 'envelope-heart',
+  buttonText: 'RSVP Yes',
+};
+
+export const negativeRsvpState: EmailButtonState = {
+  buttonType: 'failure',
+  buttonIcon: 'envelope-heart',
+  buttonText: 'RSVP No',
+};
+
 export const defaultEmailState: EmailState = {
   isButtonClicked: false,
   isLoading: false,
   isSendSuccess: false,
   isSendFailure: false,
-  buttonState: {
-    buttonType: 'primary',
-    buttonIcon: 'envelope-heart',
-    buttonText: 'RSVP',
-  },
+  buttonState: positiveRsvpState,
 };

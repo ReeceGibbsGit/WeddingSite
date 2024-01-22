@@ -6,8 +6,12 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { sendEmail } from 'src/app/+state/actions/invite.actions';
-import { INVITES, Invite } from 'src/app/constants/guest-list';
+import {
+  sendEmail,
+  setNegativeRsvpState,
+  setPositiveRsvpState,
+} from 'src/app/+state/actions/invite.actions';
+import { Guest, INVITES, Invite } from 'src/app/constants/guest-list';
 import * as InviteSelectors from 'src/app/+state/selectors/invite.selectors';
 import {
   EmailState,
@@ -61,9 +65,16 @@ export class RsvpComponent implements OnInit {
     const guestsAttending =
       this.inviteDetails?.guests.filter((guest) => guest.isComing).length ?? 0;
 
-    this.isPositiveRsvp = guestsAttending > 0;
+    if (guestsAttending > 0) {
+      this.isPositiveRsvp = true;
+      this.store.dispatch(setPositiveRsvpState());
+    } else {
+      this.isPositiveRsvp = false;
+      this.store.dispatch(setNegativeRsvpState());
+    }
   }
 
+  // If we feel so inclined, we should probably manage the invite list using redux too
   public handleGuestChange(guestId: string, isRemoving: boolean = false): void {
     if (this.inviteDetails) {
       const guestIndex = this.getGuestIndex(guestId);
@@ -77,10 +88,20 @@ export class RsvpComponent implements OnInit {
   }
 
   public handleSendEmail() {
+    const coming = this.inviteDetails?.guests
+      .filter((g) => g.isComing)
+      .map((g) => g.name)
+      .join(', ');
+
+    const notComing = this.inviteDetails?.guests
+      .filter((g) => !g.isComing)
+      .map((g) => g.name)
+      .join(', ');
+
     const emailData: EmailTemplate = {
-      result: 'YES',
-      name: 'Dale Williams',
-      details: 'Amy Williams, Nina Williams',
+      result: this.isPositiveRsvp ? 'YES' : 'NO',
+      name: this.primaryGuest,
+      details: `Coming: ${coming}\n\nNot coming: ${notComing}`,
     };
 
     this.store.dispatch(sendEmail({ emailTemplate: emailData }));

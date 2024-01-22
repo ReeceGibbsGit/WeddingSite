@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EmailClientService } from './../../services/email-client/email-client.service';
 import * as InviteActions from '../actions/invite.actions';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 @Injectable()
 export class InviteEffects {
@@ -17,8 +17,11 @@ export class InviteEffects {
             details: action.emailTemplate.details,
           })
           .pipe(
-            map(() => InviteActions.sendEmailSuccess()),
-            catchError(() => of(InviteActions.sendEmailFailure()))
+            map((success) =>
+              success
+                ? InviteActions.sendEmailSuccess()
+                : InviteActions.sendEmailFailure()
+            )
           )
       )
     )
