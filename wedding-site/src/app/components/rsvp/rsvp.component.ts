@@ -11,7 +11,7 @@ import {
   setNegativeRsvpState,
   setPositiveRsvpState,
 } from 'src/app/+state/actions/invite.actions';
-import { Guest, INVITES, Invite } from 'src/app/constants/guest-list';
+import { INVITES, Invite } from 'src/app/constants/guest-list';
 import * as InviteSelectors from 'src/app/+state/selectors/invite.selectors';
 import {
   EmailState,

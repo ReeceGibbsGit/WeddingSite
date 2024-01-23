@@ -1,5 +1,24 @@
 <div *ngIf="emailState$ | async as state" class="rsvp">
   <ng-content></ng-content>
+
+  <div
+    *ngIf="state.isSendSuccess"
+    class="alert alert-success alert-message"
+    role="alert"
+  >
+    Thank you! We have recieved your response. Take care and hope to see you
+    soon.
+  </div>
+
+  <div
+    *ngIf="state.isSendFailure"
+    class="alert alert-danger alert-message"
+    role="alert"
+  >
+    Oops... It looks like something went wrong, please contact us directly with
+    your RSVP details.
+  </div>
+
   <ng-container *ngIf="inviteDetails; else errorMessage">
     <ul class="rsvp__guest-list list-group">
       <li
