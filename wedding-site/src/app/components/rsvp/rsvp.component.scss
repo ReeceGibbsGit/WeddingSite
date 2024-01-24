@@ -34,6 +34,15 @@
   .alert-message {
     margin: 0 auto;
     max-width: calc(spacing(56) * 2);
+    font-size: calc(spacing(3));
+
+    @include device-type(tablet) {
+      font-size: spacing(4);
+    }
+
+    @include device-type(desktop) {
+      font-size: spacing(5);
+    }
   }
 
   .striked-out {
