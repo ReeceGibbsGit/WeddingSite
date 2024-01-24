@@ -13,6 +13,8 @@ import { StoreModule } from '@ngrx/store';
 import { inviteReducer } from './+state/reducers/invite.reducers';
 import { InviteEffects } from './+state/effects/invite.effects';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [{ path: '', component: AppComponent }];
 
@@ -25,6 +27,8 @@ const routes: Routes = [{ path: '', component: AppComponent }];
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     NgbModule,
     FormsModule,
     RouterModule.forRoot(routes),
