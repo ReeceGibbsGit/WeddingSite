@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { inviteReducer } from './+state/reducers/invite.reducers';
 import { InviteEffects } from './+state/effects/invite.effects';
+import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 
 const routes: Routes = [{ path: '', component: AppComponent }];
 
@@ -29,6 +30,8 @@ const routes: Routes = [{ path: '', component: AppComponent }];
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([InviteEffects]),
     StoreModule.forRoot({ invite: inviteReducer }),
+    Angular2ImageGalleryModule,
+    HammerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
