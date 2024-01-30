@@ -2,10 +2,15 @@
 @import "../styles/02_functions/spacing";
 @import "../styles/03_mixins/display-flex";
 @import "../styles/03_mixins/typography";
+@import "../styles/02_functions/color";
 
 :host {
   li {
     list-style-type: none;
+  }
+
+  a {
+    color: color(primary, sage);
   }
 
   .container {
