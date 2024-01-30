@@ -28,10 +28,29 @@
     width: 50%;
   }
 
-  .food-section {
-    &__menu {
+  .list-group-item {
+    border-style: none;
+  }
+
+  .gifts-section {
+    &__bank-details {
+      margin: 0 auto;
+      text-align: start;
+      border: 1px solid color(primary, sage);
+      max-width: spacing(48);
+
       &--item {
-        border-style: none;
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      @include device-type(tablet) {
+        max-width: calc(spacing(64) + spacing(10));
+      }
+
+      @include device-type(desktop) {
+        max-width: calc(spacing(48) * 2);
       }
     }
   }
