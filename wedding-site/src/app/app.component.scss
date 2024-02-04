@@ -13,13 +13,28 @@
     color: color(primary, sage);
   }
 
+  .logo {
+    width: spacing(8);
+    @include device-type(tablet) {
+      width: spacing(10);
+    }
+  }
+
   .container {
     padding-top: spacing(8);
     padding-bottom: spacing(12);
     text-align: center;
 
+    @include device-type(mobile) {
+      max-width: calc((spacing(64)) + spacing(16));
+    }
+
+    @include device-type(tablet) {
+      max-width: calc((spacing(64) * 2) + spacing(10));
+    }
+
     @include device-type(desktop) {
-      max-width: calc((spacing(64) * 4) - spacing(6));
+      max-width: calc((spacing(64) * 3));
     }
   }
 
@@ -37,12 +52,13 @@
       margin: 0 auto;
       text-align: start;
       border: 1px solid color(primary, sage);
+      margin-bottom: spacing(3);
       max-width: spacing(48);
 
-      &--item {
-        p {
-          margin-bottom: 0;
-        }
+      height: spacing(56);
+
+      @include device-type(tablet) {
+        height: calc(spacing(64) + spacing(14));
       }
 
       @include device-type(tablet) {
@@ -51,6 +67,12 @@
 
       @include device-type(desktop) {
         max-width: calc(spacing(48) * 2);
+      }
+
+      &--item {
+        p {
+          margin-bottom: 0;
+        }
       }
     }
   }
