@@ -86,23 +86,6 @@
     ></gallery>
   </section>
   <hr class="separator" />
-  <section class="nav-section">
-    <h2>Navigation</h2>
-    <div class="row justify-content-center">
-      <div class="col-auto">
-        <app-map
-          class="map"
-          [markerLatitude]="-29.44568"
-          [markerLongitude]="30.19769"
-          markerTitle="Haycroft Farm"
-          [zoom]="10"
-          [width]="(isSmallDevice$ | async) ? '296px' : '500px'"
-          [height]="(isSmallDevice$ | async) ? '296px' : '500px'"
-        />
-      </div>
-    </div>
-  </section>
-  <hr class="separator" />
   <section class="food-section">
     <h2>The Food</h2>
     <h3>Canapés</h3>
@@ -185,6 +168,23 @@
         >here</a
       >.
     </p>
+  </section>
+  <hr class="separator" />
+  <section class="nav-section">
+    <h2>Getting to the Venue</h2>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <app-map
+          class="map"
+          [markerLatitude]="-29.44568"
+          [markerLongitude]="30.19769"
+          markerTitle="Haycroft Farm"
+          [zoom]="10"
+          [width]="(isSmallDevice$ | async) ? '296px' : '500px'"
+          [height]="(isSmallDevice$ | async) ? '296px' : '500px'"
+        />
+      </div>
+    </div>
   </section>
   <hr class="separator" />
   <section class="gifts-section">
