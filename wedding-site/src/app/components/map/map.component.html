@@ -3,9 +3,7 @@
   [height]="height"
   [center]="markerPosition"
   [zoom]="zoom"
-  [options]="{
-    fullscreenControl: true,
-  }"
 >
   <map-marker [position]="markerPosition" [title]="markerTitle"></map-marker>
 </google-map>
+<p><a [href]="markerLink" target="_blank">Open in Google Maps</a></p>

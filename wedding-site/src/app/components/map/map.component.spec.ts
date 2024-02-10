@@ -119,4 +119,25 @@ describe('MapComponent', () => {
       });
     });
   });
+
+  describe('the markerLink property', () => {
+    it('should load the default value when no value is passed in', () => {
+      const { component } = setup();
+      expect(component.markerLink).toBe(
+        'https://www.google.com/maps/?q=-29.78308,31.05314'
+      );
+    });
+
+    it('should set the correct value when a value is passed in', () => {
+      const { component } = setup({
+        props: {
+          markerLatitude: 3.2,
+          markerLongitude: 4.3,
+        },
+      });
+      expect(component.markerLink).toBe(
+        'https://www.google.com/maps/?q=3.2,4.3'
+      );
+    });
+  });
 });

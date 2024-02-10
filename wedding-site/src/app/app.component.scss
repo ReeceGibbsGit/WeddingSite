@@ -5,14 +5,6 @@
 @import "../styles/02_functions/color";
 
 :host {
-  li {
-    list-style-type: none;
-  }
-
-  a {
-    color: color(primary, sage);
-  }
-
   .logo {
     width: spacing(8);
     @include device-type(tablet) {

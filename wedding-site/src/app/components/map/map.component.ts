@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapComponent {
@@ -18,5 +19,9 @@ export class MapComponent {
       lat: this.markerLatitude,
       lng: this.markerLongitude,
     };
+  }
+
+  public get markerLink(): string {
+    return `https://www.google.com/maps/?q=${this.markerLatitude},${this.markerLongitude}`;
   }
 }
