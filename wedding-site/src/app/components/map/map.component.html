@@ -3,6 +3,9 @@
   [height]="height"
   [center]="markerPosition"
   [zoom]="zoom"
+  [options]="{
+    fullscreenControl: true,
+  }"
 >
   <map-marker [position]="markerPosition" [title]="markerTitle"></map-marker>
 </google-map>
