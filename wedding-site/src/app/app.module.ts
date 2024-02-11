@@ -15,6 +15,8 @@ import { InviteEffects } from './+state/effects/invite.effects';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [{ path: '', component: AppComponent }];
 
@@ -24,6 +26,7 @@ const routes: Routes = [{ path: '', component: AppComponent }];
     HeroBannerComponent,
     ButtonComponent,
     RsvpComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ const routes: Routes = [{ path: '', component: AppComponent }];
     StoreModule.forRoot({ invite: inviteReducer }),
     Angular2ImageGalleryModule,
     HammerModule,
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

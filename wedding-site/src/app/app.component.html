@@ -170,6 +170,27 @@
     </p>
   </section>
   <hr class="separator" />
+  <section class="nav-section">
+    <h2>Getting to the Venue</h2>
+    <p>
+      Here we describe the most efficient way to get to our venue whether you
+      are coming from the north or the south.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <app-map
+          class="map"
+          [markerLatitude]="-29.44568"
+          [markerLongitude]="30.19769"
+          markerTitle="Haycroft Farm"
+          [zoom]="10"
+          [width]="(isSmallDevice$ | async) ? '296px' : '500px'"
+          [height]="(isSmallDevice$ | async) ? '296px' : '500px'"
+        />
+      </div>
+    </div>
+  </section>
+  <hr class="separator" />
   <section class="gifts-section">
     <h2>Gifts</h2>
     <p>
