@@ -65,7 +65,16 @@
   }
 
   .sub-text {
-    font-size: 1rem;
+    font-size: spacing(2);
+
+    @include device-type(tablet) {
+      font-size: spacing(3);
+    }
+
+    @include device-type(desktop) {
+      font-size: spacing(4);
+    }
+
     color: color(primary, silver);
   }
 }
