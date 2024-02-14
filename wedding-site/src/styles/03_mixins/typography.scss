@@ -1,6 +1,7 @@
 @import "../01_settings/typography";
 @import "../03_mixins/media-screen";
 @import "../02_functions/spacing";
+@import "../02_functions/color";
 
 @mixin font-family($style) {
   @if not index(map-keys($typography), $style) {
@@ -48,6 +49,10 @@
     @include device-type(desktop) {
       font-size: spacing(5);
     }
+
+    &.no-b-margin {
+      margin-bottom: 0 !important;
+    }
   }
 
   h1,
@@ -57,5 +62,10 @@
   h5,
   h6 {
     @include font-family(secondary);
+  }
+
+  .sub-text {
+    font-size: 1rem;
+    color: color(primary, silver);
   }
 }
