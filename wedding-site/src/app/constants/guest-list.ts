@@ -54,11 +54,6 @@ const INVITES: Array<Invite> = [
         id: '8608805c-94a1-42b5-bdb4-f9709e771e23',
       },
       {
-        name: 'Ewan Gibbs',
-        isComing: true,
-        id: '839b2afd-9928-4d4c-a2c3-72138c648e2a',
-      },
-      {
         name: 'Daniel Gibbs',
         isComing: true,
         id: '2456bc6f-f064-4c57-86d7-0c7473827181',
@@ -518,6 +513,11 @@ const INVITES: Array<Invite> = [
   {
     id: 'da88accb-a1c2-4d4d-b8df-51dc709d2b78',
     guests: [
+      {
+        name: 'Ewan Gibbs',
+        isComing: true,
+        id: '839b2afd-9928-4d4c-a2c3-72138c648e2a',
+      },
       {
         name: 'Grace McInnes',
         isComing: true,
