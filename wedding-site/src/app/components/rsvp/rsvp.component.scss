@@ -1,0 +1,59 @@
+@import "../../../styles/02_functions/spacing";
+@import "../../../styles/03_mixins/media-screen";
+
+:host {
+  .rsvp {
+    &__guest-list {
+      max-width: calc(spacing(56) * 2);
+      margin: 0 auto;
+      padding-top: spacing(4);
+
+      &-item {
+        font-size: calc(spacing(3));
+
+        @include device-type(tablet) {
+          font-size: spacing(4);
+        }
+
+        @include device-type(desktop) {
+          font-size: spacing(5);
+        }
+      }
+
+      &-btn {
+        padding-left: spacing(4);
+      }
+    }
+
+    &__responses {
+      margin: 0 auto;
+      padding-top: spacing(8);
+    }
+  }
+
+  .alert-message {
+    margin: 0 auto;
+    max-width: calc(spacing(56) * 2);
+    font-size: calc(spacing(3));
+
+    @include device-type(tablet) {
+      font-size: spacing(4);
+    }
+
+    @include device-type(desktop) {
+      font-size: spacing(5);
+    }
+  }
+
+  .striked-out {
+    text-decoration: line-through;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .error {
+    color: red;
+  }
+}

@@ -38,7 +38,7 @@ describe('EmailClientService', () => {
       expect(result).toBeTruthy();
       expect(spy).toHaveBeenCalledWith(
         'service_kd7nr4h',
-        'template_mak2x2d',
+        'template_cwo0fbe',
         {}
       );
     }));
@@ -59,7 +59,7 @@ describe('EmailClientService', () => {
       expect(result).toBeFalsy();
       expect(spy).toHaveBeenCalledWith(
         'service_kd7nr4h',
-        'template_mak2x2d',
+        'template_cwo0fbe',
         {}
       );
     }));

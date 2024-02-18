@@ -1,15 +1,32 @@
 @import "../styles/03_mixins/media-screen";
 @import "../styles/02_functions/spacing";
 @import "../styles/03_mixins/display-flex";
+@import "../styles/03_mixins/typography";
+@import "../styles/02_functions/color";
 
 :host {
+  .logo {
+    width: spacing(8);
+    @include device-type(tablet) {
+      width: spacing(10);
+    }
+  }
+
   .container {
     padding-top: spacing(8);
     padding-bottom: spacing(12);
     text-align: center;
 
+    @include device-type(mobile) {
+      max-width: calc((spacing(64)) + spacing(16));
+    }
+
+    @include device-type(tablet) {
+      max-width: calc((spacing(64) * 2) + spacing(10));
+    }
+
     @include device-type(desktop) {
-      max-width: 1000px;
+      max-width: calc((spacing(64) * 3));
     }
   }
 
@@ -18,28 +35,32 @@
     width: 50%;
   }
 
-  .details-section {
-    &__form {
+  .list-group-item {
+    border-style: none;
+  }
+
+  .gifts-section {
+    &__bank-details {
       margin: 0 auto;
-      padding-top: spacing(3);
-      max-width: calc(spacing(64) + spacing(8) + spacing(3));
+      text-align: start;
+      border: 1px solid color(primary, sage);
+      margin-bottom: spacing(3);
+      max-width: spacing(48);
+
+      height: spacing(64);
 
       @include device-type(tablet) {
-        max-width: calc(spacing(64) * 2);
+        height: calc(spacing(64) + spacing(14));
+        max-width: calc(spacing(64) + spacing(10));
       }
 
-      .input-group-text {
-        font-size: spacing(2);
-        min-width: spacing(14);
+      @include device-type(desktop) {
+        max-width: calc(spacing(48) * 2);
+      }
 
-        @include device-type(tablet) {
-          font-size: spacing(3);
-          min-width: calc(spacing(18) + spacing(4));
-        }
-
-        @include device-type(desktop) {
-          font-size: spacing(4);
-          min-width: calc(spacing(24) + spacing(4));
+      &--item {
+        p {
+          margin-bottom: 0;
         }
       }
     }
@@ -47,32 +68,39 @@
 }
 
 .hero-banner {
-  &__header-primary {
-    line-height: spacing(8);
-    font-size: calc(spacing(12) + spacing(3));
+  &__header {
+    font-size: spacing(8);
+    line-height: calc(spacing(4) + spacing(3));
+    margin-bottom: 0;
 
     @include device-type(tablet) {
-      font-size: spacing(24);
+      font-size: spacing(16);
+      line-height: calc(spacing(14) + spacing(1));
     }
 
     @include device-type(desktop) {
-      font-size: calc(spacing(24) + spacing(4));
+      font-size: spacing(20);
+      line-height: calc(spacing(18) + spacing(1));
+    }
+
+    &.sm-lineheight {
+      line-height: spacing(5);
+
+      @include device-type(tablet) {
+        line-height: spacing(10);
+      }
+
+      @include device-type(desktop) {
+        line-height: spacing(12);
+      }
+    }
+
+    &.primary {
+      @include font-family(primary);
+    }
+
+    &.secondary {
+      @include font-family(secondary);
     }
   }
-
-  &__header-secondary {
-    font-size: spacing(4);
-
-    @include device-type(tablet) {
-      font-size: spacing(6);
-    }
-
-    @include device-type(desktop) {
-      font-size: spacing(8);
-    }
-  }
-}
-
-.rsvp-modal-content {
-  text-align: center;
 }

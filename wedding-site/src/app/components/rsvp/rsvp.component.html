@@ -1,0 +1,79 @@
+<div *ngIf="emailState$ | async as state" class="rsvp">
+  <ng-content></ng-content>
+
+  <div
+    *ngIf="state.isSendSuccess"
+    class="alert alert-success alert-message"
+    role="alert"
+  >
+    Thank you! We have recieved your response. Take care and hope to see you
+    soon.
+  </div>
+
+  <div
+    *ngIf="state.isSendFailure"
+    class="alert alert-danger alert-message"
+    role="alert"
+  >
+    Oops... It looks like something went wrong, please contact us directly with
+    your RSVP details.
+  </div>
+
+  <ng-container *ngIf="inviteDetails; else errorMessage">
+    <ul class="rsvp__guest-list list-group">
+      <li
+        *ngFor="let guest of inviteDetails.guests"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <span
+          [ngClass]="{
+            'striked-out': guest.isComing === false
+          }"
+          class="rsvp__guest-list-item"
+          >{{ guest.name }}</span
+        >
+        <div>
+          <app-button
+            [ngClass]="{
+              hidden: guest.isComing
+            }"
+            class="rsvp__guest-list-btn"
+            type="success"
+            [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+            [disabled]="state.isButtonClicked"
+            (clickEvent)="handleGuestChange(guest.id)"
+            >Re-add</app-button
+          >
+          <app-button
+            [ngClass]="{
+              hidden: guest.isComing === false
+            }"
+            class="rsvp__guest-list-btn"
+            type="failure"
+            [disabled]="state.isButtonClicked"
+            [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+            (clickEvent)="handleGuestChange(guest.id, true)"
+            >Remove</app-button
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="rsvp__responses">
+      <app-button
+        [type]="state.buttonState.buttonType"
+        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
+        [disabled]="state.isButtonClicked"
+        (clickEvent)="handleSendEmail()"
+        [icon]="state.buttonState.buttonIcon"
+        >{{ state.buttonState.buttonText }}</app-button
+      >
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #errorMessage>
+  <p class="error">
+    Oops... It looks like something went wrong. Please contact Reece or Gee with
+    your RSVP directly.
+  </p>
+</ng-template>

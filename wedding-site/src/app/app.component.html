@@ -2,10 +2,12 @@
   class="hero-banner"
   [isFloatingContent]="true"
   contentAlignment="center"
-  imageUrl="assets/images/hero.jpg"
+  imageUrl="assets/images/hero2.jpg"
 >
-  <h1 class="hero-banner__header-primary">Save the date</h1>
-  <p class="hero-banner__header-secondary">25 | 01 | 25</p>
+  <h1 class="hero-banner__header primary">25</h1>
+  <p class="hero-banner__header secondary">Jan</p>
+  <h1 class="hero-banner__header primary sm-lineheight">20</h1>
+  <h1 class="hero-banner__header primary">25</h1>
 </app-hero-banner>
 
 <div class="container">
@@ -26,78 +28,354 @@
       Midlands, KZN
     </p>
   </section>
+  <ng-container *ngIf="this.inviteId">
+    <hr class="separator" />
+    <section class="details-section">
+      <app-rsvp [inviteId]="this.inviteId">
+        <h2>RSVP</h2>
+        <p>
+          Please RSVP for your wedding party using the tool below. <br />
+          We kindly request that you respond - whether you are able to attend or
+          not - by the 25th of November 2024.
+        </p>
+      </app-rsvp>
+    </section>
+  </ng-container>
   <hr class="separator" />
-  <section class="details-section">
-    <h2>Enter your details below</h2>
+  <section class="story-section">
+    <h2>Our Story</h2>
     <p>
-      Please provide your name and email address in the form<br />below to
-      recieve a formal invitation in the weeks to come.
+      It was 2020 when we first met at a party while Georgia was meant to be
+      studying for a psychology test. Sparks flew instantly when Reece impressed
+      her with his banter, and plans were made to meet up again the next
+      weekend. Frustratingly, the world then went into lockdown, forcing some
+      rather inventive covert rendezvous. It was in this time of texting (until
+      3am some mornings) that we discovered a mutual love of deep chats over
+      good coffee, a passion for travel, and surprisingly complementary tastes
+      in music.
+      <br />
+      <br />
+      Since then our love has grown, with our life adventure finally ending up
+      with us both living in New Zealand, after a year of being 12 000km apart.
+      Going from long-distance movie dates, managing time zones and visas; we
+      now spend our time exploring hiking trails, trying out new recipes, and
+      finding the best spots for cocktail sundowners.
+      <br />
+      <br />
+      In August, Reece proposed to Georgia who has still not stopped staring at
+      the stunning ring he designed for her. Another design of his is this
+      website you are currently reading: he coded it all from scratch (and
+      Georgia thinks it's brilliant)! We are beyond excited to start this new
+      chapter by celebrating our love and future together with all of our
+      favourite people!
     </p>
-    <form #emailForm="ngForm" class="details-section__form">
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
+    <br />
+    <gallery
+      [flexBorderSize]="3"
+      [flexImageSize]="8"
+      [includeViewer]="true"
+      [lazyLoadGalleryImages]="true"
+      galleryName="engagement-photos"
+    ></gallery>
+  </section>
+  <hr class="separator" />
+  <section class="food-section">
+    <h2>The Food</h2>
+    <h3>Canapés</h3>
+    <ul class="list-group food-section__menu">
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">
+          - Cocktail pulled pork roll with red cabbage slaw and alfalfa shoots
+        </p>
+        <p>
+          <i class="sub-text">his favourite</i>
+        </p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">
+          - Mini Yorkshire puddings with roast beef and horseradish cream
+        </p>
+        <p>
+          <i class="sub-text">her favourite</i>
+        </p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">
+          - Cocktail fried fish and chips in a cone with tartar sauce
+        </p>
+        <p>
+          <i class="sub-text">kiwi favourite</i>
+        </p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">
+          - Petit crumbed Camembert with cranberry jelly
+        </p>
+        <p>
+          <i class="sub-text">baytopp favourite</i>
+        </p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">- Crispy cocktail samoosas</p>
+        <p class="no-b-margin">
+          <i class="sub-text">saffa favourite</i>
+        </p>
+      </li>
+    </ul>
+    <br />
+    <i class="bi bi-suit-heart"></i>
+    <br /><br />
+    <h3>Mains</h3>
+    <ul class="list-group food-section__menu">
+      <li class="list-group-item food-section__menu--item">
+        <p>- Pulled braised short rib</p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p>- Lemon & herb chicken strips</p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p>- BBQ pulled pork</p>
+      </li>
+    </ul>
+    <br />
+    <h3>Sides</h3>
+    <ul class="list-group food-section__menu">
+      <li class="list-group-item food-section__menu--item">
+        <p>- Crushed new potato bake with garlic, rosemary & olive oil</p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p>- Asian red cabbage slaw charred corn salad</p>
+      </li>
+      <li class="list-group-item food-section__menu--item">
+        <p>- Broccoli and bacon salad tossed with roasted sunflower seeds</p>
+      </li>
+    </ul>
+    <br />
+    <i class="bi bi-suit-heart"></i>
+    <br /><br />
+    <h3>Dessert</h3>
+    <ul class="list-group food-section__menu">
+      <li class="list-group-item food-section__menu--item">
+        <p class="no-b-margin">- Donut fondue</p>
+        <p class="no-b-margin">
+          <i class="sub-text">our favourite - in honour of our first date</i>
+        </p>
+      </li>
+    </ul>
+  </section>
+  <hr class="separator" />
+  <section class="venue-section">
+    <h2>The Venue</h2>
+    <p>
+      We will be celebrating the first day of our marriage at Haycroft Farm,
+      located in The KZN Midlands.
+      <br />
+      <br />
+      Weather-permitting, the ceremony will be held in the Forest Chapel; a
+      breath-taking clearing under the forest canopy, overlooking the water.
+      <br />
+      <br />
+      Thereafter, drinks, canapes, and cake will be enjoyed on the deck before
+      heading to the reception for festivities.
+    </p>
+    <gallery
+      [flexBorderSize]="3"
+      [flexImageSize]="8"
+      [includeViewer]="true"
+      [lazyLoadGalleryImages]="true"
+      galleryName="venue-photos"
+    ></gallery>
+  </section>
+  <hr class="separator" />
+  <section class="accomodation-section">
+    <h2>Where to Stay</h2>
+    <h3>At the Venue</h3>
+    <p>
+      The rooms onsite have been reserved for specific guests. However, should
+      these guests decline to make use of these rooms, a small number of them
+      may become available. We will follow up with an email closer to the
+      wedding date allowing these remaining rooms to be booked on a first come,
+      first served basis.
+    </p>
+    <br />
+    <h3>Options Nearby</h3>
+    <p>
+      There are many fantastic options available within a couple of minutes of
+      Haycroft Farm. A list of these can be found
+      <a
+        href="https://haycroftfarm.com/recommended-accommodation/"
+        target="_blank"
+        >here</a
+      >.
+    </p>
+  </section>
+  <hr class="separator" />
+  <section class="nav-section">
+    <h2>Getting to the Venue</h2>
+    <p>
+      From the N3:
+      <br />
+      Take Exit 107 towards Tweedie
+      <br />
+      Turn right onto R103
+      <br />
+      After &#177;1km, turn right onto P162 (this is easy to miss)
+      <br />
+      Continue straight for &#177;4km (travelling over the N3)
+      <br />
+      Turn left into Haycroft
+      <br />
+      <br />
+      <i
+        >This is the most direct route that misses most dirt roads and potholes.
+        <br />
+        If travelling South-bound, avoid going off earlier exits.</i
       >
-        <span class="input-group-text" id="first-name-input">First name</span>
-        <input
-          required
-          name="firstName"
-          type="text"
-          class="form-control"
-          [(ngModel)]="formData.firstName"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="First name"
-          aria-describedby="first-name-input"
+    </p>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <app-map
+          class="map"
+          [markerLatitude]="-29.44568"
+          [markerLongitude]="30.19769"
+          markerTitle="Haycroft Farm"
+          [zoom]="10"
+          [width]="(isSmallDevice$ | async) ? '296px' : '500px'"
+          [height]="(isSmallDevice$ | async) ? '296px' : '500px'"
         />
       </div>
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
-      >
-        <span class="input-group-text" id="last-name-input">Last name</span>
-        <input
-          required
-          name="lastName"
-          type="text"
-          class="form-control"
-          [(ngModel)]="formData.lastName"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="First name"
-          aria-describedby="last-name-input"
-        />
+    </div>
+  </section>
+  <hr class="separator" />
+  <section class="gifts-section">
+    <h2>Gifts</h2>
+    <p>
+      Following all of our celebrations we have a long flight ahead of us back
+      to New Zealand - and not all that much luggage space. For that reason, we
+      ask that you please refrain from purchasing any physical gifts for us and
+      rather contribute to a little fund to help pay for our future travels.
+      <br />
+      <br />
+      If you wish to do so, please deposit an amount of your choosing into the
+      bank account below and ensure to leave your full name in the payment
+      reference so we can thank you.
+    </p>
+    <br />
+    <div class="row">
+      <div class="col-md">
+        <ul class="list-group gifts-section__bank-details">
+          <li class="list-group-item gifts-section__bank-details--item">
+            <img
+              class="logo"
+              src="assets/images/south-africa.png"
+              alt="South Africa"
+            />
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Account holder: Georgia Baytopp</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Account number: 1156290201</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Account type: Current Account</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Bank name: Nedbank</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Branch code: 198765</p>
+          </li>
+        </ul>
       </div>
-      <div
-        [ngClass]="{
-          'input-group-sm': (isSmallDevice$ | async)
-        }"
-        class="input-group mb-3"
-      >
-        <span class="input-group-text" id="email-input">Email</span>
-        <input
-          required
-          email
-          name="email"
-          type="email"
-          class="form-control"
-          [(ngModel)]="formData.email"
-          [disabled]="emailFormState.isSendSuccess"
-          aria-label="Email"
-          aria-describedby="email-input"
-        />
+      <div class="col-md">
+        <ul class="list-group gifts-section__bank-details">
+          <li class="list-group-item gifts-section__bank-details--item">
+            <img
+              class="logo"
+              src="assets/images/new-zealand.png"
+              alt="New Zealand"
+            />
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Account holder: Georgia Baytopp</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Account number: 02-1244-0205568-000</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Bank name: BNZ</p>
+          </li>
+          <li class="list-group-item gifts-section__bank-details--item">
+            <p>Swift code: BKNZNZ22</p>
+          </li>
+        </ul>
       </div>
-      <app-button
-        [type]="emailFormState.buttonState.buttonType"
-        [size]="(isSmallDevice$ | async) ? 'small' : 'medium'"
-        [disabled]="!emailForm.valid || emailFormState.isButtonClicked"
-        (clickEvent)="handleSendEmail()"
-        [icon]="emailFormState.buttonState.buttonIcon"
-        >{{ emailFormState.buttonState.buttonText }}</app-button
+    </div>
+  </section>
+  <hr class="separator" />
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <h3>How can I contact you?</h3>
+    <p>
+      Please reach out to us at
+      <a href="mailto: georgiareecewedding@gmail.com" target="_blank"
+        >georgiareecewedding&#64;gmail.com</a
       >
-    </form>
+      or via Whatsapp at
+      <a href="tel: +64225037456" target="_blank">+64225037456</a>.
+    </p>
+    <br />
+    <h3>Can I bring a plus-one?</h3>
+    <p>
+      Due to budget constraints and space limitations at our venue, we ask that
+      you please stick to the guests specifically named in your invitation.
+    </p>
+    <br />
+    <h3>Can I bring my kids?</h3>
+    <p>Whilst we love little ones, we kindly request a child-free wedding.</p>
+    <br />
+    <h3>What will the dress code be?</h3>
+    <p>
+      Cocktail attire. A step above smart-casual. Jackets requested for men (tie
+      optional). For women, we suggest anything from a cocktail to floor-length
+      dress. As there is grass at the venue, we recommend a wider-heeled shoe
+      for comfort.
+    </p>
+    <br />
+    <h3>What if I have specific dietary requirements?</h3>
+    <p>
+      If you have any specific dietary requirements, please reach out to us
+      directly and we will assist with your request.
+    </p>
+    <br />
+    <h3>Can I take photos?</h3>
+    <p>
+      While we kindly request that our ceremony be unplugged. We would love for
+      you to take as many photos as possible during our reception and share them
+      on the Google Drive folder found
+      <a
+        href="https://drive.google.com/drive/folders/1i2IvlAHeNNP8MU8wZI5Vl5VIZZpEskH5?usp=drive_link"
+        target="_blank"
+        >here</a
+      >.
+    </p>
+    <br />
+    <h3>Will there be a bar?</h3>
+    <p>
+      Of course! While we are delighted to offer a limited selection of both
+      alcoholic and non-alcoholic beverages on-the-house, we ask that you please
+      bring cash/card should you wish to purchase drinks beyond our provided
+      selection.
+    </p>
+    <br />
+    <h3>What time should I arrive?</h3>
+    <p>
+      We ask that you arrive at least 30 minutes in advance - by 14:30 - for the
+      ceremony to start at 15:00. Cocktails beside the dam and reception to
+      follow. Festivities end at 01:00.
+    </p>
   </section>
   <hr class="separator" />
   <section class="celebrate-section">
@@ -111,24 +389,3 @@
   </section>
   <hr class="separator" />
 </div>
-
-<ng-template #rsvpModalContent>
-  <div class="rsvp-modal-content">
-    <h3>James Thomson</h3>
-    <p>and</p>
-    <h3>Angela Clark</h3>
-    <br /><br />
-    SATURDAY THE 25TH OF JANUARY 2025
-    <br />
-    at 3:00pm
-    <br />
-    Haycroft Farm
-    <br />
-    District Road P1622, Howick, 3290, Kwa-Zulu Natal
-    <br />
-    <br />
-    RECEPTION TO FOLLOW
-    <br />
-    from 5:00pm to 1:00am
-  </div>
-</ng-template>
