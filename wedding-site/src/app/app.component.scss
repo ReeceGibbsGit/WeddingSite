@@ -73,14 +73,14 @@
 .hero-banner {
   &__header-primary {
     line-height: spacing(8);
-    font-size: calc(spacing(12) + spacing(3));
+    font-size: spacing(20);
 
     @include device-type(tablet) {
-      font-size: spacing(24);
+      font-size: calc(spacing(24) + spacing(4));
     }
 
     @include device-type(desktop) {
-      font-size: calc(spacing(24) + spacing(4));
+      font-size: spacing(32);
     }
   }
 
