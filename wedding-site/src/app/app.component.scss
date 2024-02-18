@@ -71,28 +71,39 @@
 }
 
 .hero-banner {
-  &__header-primary {
-    line-height: spacing(8);
-    font-size: spacing(20);
+  &__header {
+    font-size: spacing(8);
+    line-height: calc(spacing(4) + spacing(3));
+    margin-bottom: 0;
 
     @include device-type(tablet) {
-      font-size: calc(spacing(24) + spacing(4));
+      font-size: spacing(16);
+      line-height: calc(spacing(14) + spacing(1));
     }
 
     @include device-type(desktop) {
-      font-size: spacing(32);
-    }
-  }
-
-  &__header-secondary {
-    font-size: spacing(4);
-
-    @include device-type(tablet) {
-      font-size: spacing(6);
+      font-size: spacing(20);
+      line-height: calc(spacing(18) + spacing(1));
     }
 
-    @include device-type(desktop) {
-      font-size: spacing(8);
+    &.sm-lineheight {
+      line-height: spacing(5);
+
+      @include device-type(tablet) {
+        line-height: spacing(10);
+      }
+
+      @include device-type(desktop) {
+        line-height: spacing(12);
+      }
+    }
+
+    &.primary {
+      @include font-family(primary);
+    }
+
+    &.secondary {
+      @include font-family(secondary);
     }
   }
 }
