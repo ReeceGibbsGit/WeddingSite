@@ -163,6 +163,16 @@ const INVITES: Array<Invite> = [
         isComing: true,
         id: '91ee32ef-88d6-4d0d-a4d6-2261f3a9f56f',
       },
+      {
+        name: 'Abby Waller',
+        isComing: true,
+        id: '898ee494-2b73-489c-9c91-8ebd68faa8a7',
+      },
+      {
+        name: 'Andrew Waller',
+        isComing: true,
+        id: '6513a774-9903-4d6e-a044-961e6e7d440c',
+      },
     ],
   },
   {
@@ -174,7 +184,7 @@ const INVITES: Array<Invite> = [
         id: 'd116d69d-3832-49cb-88b8-47c7fb329d5e',
       },
       {
-        name: 'Shalom',
+        name: 'Shalom Mashiri',
         isComing: true,
         id: '4fdf56b2-7d68-4725-9997-22ef3bfcedce',
       },
@@ -209,7 +219,7 @@ const INVITES: Array<Invite> = [
     id: 'c010f4a8-47f6-4781-b8e8-ddc495f05c28',
     guests: [
       {
-        name: 'Chris Williams',
+        name: 'Christopher Williams',
         isComing: true,
         id: 'a2e2dd17-a117-4eb2-9993-97ef24e274c2',
       },
@@ -264,7 +274,7 @@ const INVITES: Array<Invite> = [
         id: 'e98299fc-57f3-4868-b0e7-808cf26a09c4',
       },
       {
-        name: 'Gaby Smith',
+        name: 'Gabrielle Smith',
         isComing: true,
         id: '26804b61-9726-4036-a55c-a90ddfc47127',
       },
@@ -414,7 +424,7 @@ const INVITES: Array<Invite> = [
     id: '56477d27-300d-4c86-a4bb-d0db93aabdd5',
     guests: [
       {
-        name: 'Mike Gibbs',
+        name: 'Michael Gibbs',
         isComing: true,
         id: '33262a9a-aafb-4dd9-885f-00157a86c8ef',
       },
@@ -498,6 +508,11 @@ const INVITES: Array<Invite> = [
         isComing: true,
         id: 'd920ab57-fdab-4e53-9100-5d526960d830',
       },
+      {
+        name: 'Cassidy Johnston',
+        isComing: true,
+        id: 'a7a251e1-2f0b-4427-b3ee-a60e07ca6914',
+      },
     ],
   },
   {
@@ -532,6 +547,11 @@ const INVITES: Array<Invite> = [
         name: 'Eryn Farland',
         isComing: true,
         id: '67938384-011b-42fd-8080-5e791a2b9b5e',
+      },
+      {
+        name: 'Calvin Smith',
+        isComing: true,
+        id: '18f23511-fe3a-4866-83f1-5ef5bfec04db',
       },
     ],
   },
@@ -619,7 +639,7 @@ const INVITES: Array<Invite> = [
         id: '8a6255dd-5a37-4e99-a12f-6744a392ee94',
       },
       {
-        name: 'Dee Williams',
+        name: 'Deirdre Williams',
         isComing: true,
         id: '0dc5e9af-5589-46fa-b104-645cdbfa9334',
       },
@@ -643,11 +663,6 @@ const INVITES: Array<Invite> = [
         isComing: true,
         id: 'cb915516-da58-46f0-ad04-015fd831830e',
       },
-      {
-        name: 'Rose Farr',
-        isComing: true,
-        id: '742b44f5-64c1-45d5-8472-1b65ea4fae68',
-      },
     ],
   },
   {
@@ -666,22 +681,32 @@ const INVITES: Array<Invite> = [
     ],
   },
   {
-    id: '0e9e47de-9c7a-4d13-ae58-8e62d61e078e',
-    guests: [
-      {
-        name: 'Alexandra Baldwin',
-        isComing: true,
-        id: '7ac022e1-1085-410a-a840-4e8d6eee1d03',
-      },
-    ],
-  },
-  {
     id: '372c23e0-ce54-42c9-9e7f-f2a33817c273',
     guests: [
       {
         name: 'Andrew Jacobi',
         isComing: true,
         id: '62f5e3c0-41f3-494e-b10c-dfb14c845684',
+      },
+    ],
+  },
+  {
+    id: '0694508b-7ac2-4ae8-912f-deef49ff46f5',
+    guests: [
+      {
+        name: 'Jessica Heaver',
+        isComing: true,
+        id: '5dbd90cb-91e9-412c-b343-7348038eeabb',
+      },
+    ],
+  },
+  {
+    id: '30c06337-0e03-4cc7-b560-346849ba053e',
+    guests: [
+      {
+        name: 'Chantelle van Niekerk',
+        isComing: true,
+        id: '0d1d3bd8-a30b-4e65-9f61-a5e473943f5c',
       },
     ],
   },
