@@ -45,15 +45,7 @@
     @include device-type(tablet) {
       font-size: spacing(4);
     }
-    font-size: spacing(2);
 
-    @include device-type(tablet) {
-      font-size: spacing(3);
-    }
-
-    @include device-type(desktop) {
-      font-size: spacing(4);
-    }
     @include device-type(desktop) {
       font-size: spacing(5);
     }
