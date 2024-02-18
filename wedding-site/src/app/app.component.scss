@@ -47,10 +47,10 @@
       margin-bottom: spacing(3);
       max-width: spacing(48);
 
-      height: calc(spacing(48) + spacing(4));
+      height: spacing(64);
 
       @include device-type(tablet) {
-        height: calc(spacing(64));
+        height: calc(spacing(64) + spacing(14));
         max-width: calc(spacing(64) + spacing(10));
       }
 
