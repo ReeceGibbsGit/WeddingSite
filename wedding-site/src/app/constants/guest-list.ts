@@ -210,6 +210,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  // done
   {
     id: 'c010f4a8-47f6-4781-b8e8-ddc495f05c28',
     guests: [
@@ -219,7 +220,7 @@ const INVITES: Array<Invite> = [
         id: 'a2e2dd17-a117-4eb2-9993-97ef24e274c2',
       },
       {
-        name: 'Ashley Laurent',
+        name: 'Ashleigh Laurent',
         isComing: true,
         id: '976bf8b3-e885-4a66-b0f7-e7c15cbcafd5',
       },
@@ -525,6 +526,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  // done
   {
     id: '5fce0d45-5d8e-491f-a725-d48ab42211a7',
     guests: [
