@@ -134,7 +134,7 @@ const INVITES: Array<Invite> = [
     id: 'fd7f694e-a089-4a64-976e-cbb06fb0f7c0',
     guests: [
       {
-        name: 'Angela Clark',
+        name: 'Angela Clarke',
         isComing: true,
         id: '3ae217a2-384d-45d6-9183-82460be96c52',
       },
@@ -255,7 +255,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-  // done
   {
     id: 'acfb724b-d31b-4cdd-ae65-8eff69d54f7c',
     guests: [
@@ -421,6 +420,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  //  done
   {
     id: '56477d27-300d-4c86-a4bb-d0db93aabdd5',
     guests: [
