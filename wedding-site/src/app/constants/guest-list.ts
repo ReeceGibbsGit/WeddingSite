@@ -240,7 +240,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-
   {
     id: '1d1e66ab-57a3-46d9-b2dd-7eb9294d9590',
     guests: [
@@ -257,7 +256,6 @@ const INVITES: Array<Invite> = [
     ],
   },
   // done
-
   {
     id: 'acfb724b-d31b-4cdd-ae65-8eff69d54f7c',
     guests: [
