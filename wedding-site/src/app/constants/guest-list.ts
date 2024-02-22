@@ -210,7 +210,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-  // done
   {
     id: 'c010f4a8-47f6-4781-b8e8-ddc495f05c28',
     guests: [
@@ -256,6 +255,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  // done
   {
     id: 'acfb724b-d31b-4cdd-ae65-8eff69d54f7c',
     guests: [
@@ -270,14 +270,19 @@ const INVITES: Array<Invite> = [
         id: 'e98299fc-57f3-4868-b0e7-808cf26a09c4',
       },
       {
+        name: 'Kara Smith',
+        isComing: true,
+        id: '5e19a899-5080-4b1f-8738-9f1ea1da06c4',
+      },
+      {
         name: 'Gabrielle Smith',
         isComing: true,
         id: '26804b61-9726-4036-a55c-a90ddfc47127',
       },
       {
-        name: 'Kara Smith',
+        name: 'Brett Powell',
         isComing: true,
-        id: '5e19a899-5080-4b1f-8738-9f1ea1da06c4',
+        id: 'dd4c0bdb-a1b2-4141-b4e7-ef41d525ef1b',
       },
     ],
   },
