@@ -420,7 +420,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-  //  done
   {
     id: '56477d27-300d-4c86-a4bb-d0db93aabdd5',
     guests: [
@@ -476,6 +475,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  //done
   {
     id: 'c78ad28e-773b-4b61-bb1e-ffb00b794c27',
     guests: [
@@ -485,7 +485,7 @@ const INVITES: Array<Invite> = [
         id: '48650b39-baf0-4df0-b3b0-af2a5ea835a6',
       },
       {
-        name: 'Marisheen Lewis',
+        name: 'Marashene Lewis',
         isComing: true,
         id: '09dd3abd-0c4b-4e6d-b3a8-56df9f91463e',
       },
