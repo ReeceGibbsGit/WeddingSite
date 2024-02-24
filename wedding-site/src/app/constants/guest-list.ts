@@ -475,7 +475,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-  //done
   {
     id: 'c78ad28e-773b-4b61-bb1e-ffb00b794c27',
     guests: [
@@ -531,7 +530,6 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
-  // done
   {
     id: '5fce0d45-5d8e-491f-a725-d48ab42211a7',
     guests: [
@@ -562,6 +560,7 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  // done
   {
     id: '15e84dd7-e1ed-4d6a-b53f-fbee54a39bbd',
     guests: [
@@ -569,6 +568,11 @@ const INVITES: Array<Invite> = [
         name: 'Matthew Barbieri',
         isComing: true,
         id: '60e5f9ba-c976-4174-b6a0-d7a1c6ab11de',
+      },
+      {
+        name: 'Claire Rouillard',
+        isComing: true,
+        id: '2e42caab-0d7d-4a37-ac97-1c30e86223d5',
       },
     ],
   },
