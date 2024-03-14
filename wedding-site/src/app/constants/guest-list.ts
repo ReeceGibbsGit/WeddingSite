@@ -655,14 +655,24 @@ const INVITES: Array<Invite> = [
         id: '0dc5e9af-5589-46fa-b104-645cdbfa9334',
       },
       {
+        name: 'Nina Williams',
+        isComing: true,
+        id: '28665cdc-2620-4d07-96db-3c9db322666a',
+      },
+    ],
+  },
+  {
+    id: '09179198-f69a-4f47-bea8-7e44663a99fb',
+    guests: [
+      {
         name: 'Amy Williams',
         isComing: true,
         id: '52ba9933-7ba1-49d5-a666-5ec609213660',
       },
       {
-        name: 'Nina Williams',
+        name: 'Tim Schlesinger',
         isComing: true,
-        id: '28665cdc-2620-4d07-96db-3c9db322666a',
+        id: '2f069fee-434d-4376-874a-20c06281b137',
       },
     ],
   },
