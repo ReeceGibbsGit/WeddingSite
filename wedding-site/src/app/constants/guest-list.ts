@@ -731,6 +731,21 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  {
+    id: 'bb61e609-6945-4dc8-a027-ac8719b75963',
+    guests: [
+      {
+        name: 'Alex Furber',
+        isComing: true,
+        id: 'd7e5de5c-4951-414b-ac78-ccfc96241081',
+      },
+      {
+        name: 'Biata Furber',
+        isComing: true,
+        id: '19ff0049-37c7-48df-a3af-c456717279c0',
+      },
+    ],
+  },
 ];
 
 export { INVITES };
