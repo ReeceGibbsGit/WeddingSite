@@ -740,7 +740,7 @@ const INVITES: Array<Invite> = [
         id: 'd7e5de5c-4951-414b-ac78-ccfc96241081',
       },
       {
-        name: 'Biata Furber',
+        name: 'Beata Furber',
         isComing: true,
         id: '19ff0049-37c7-48df-a3af-c456717279c0',
       },
