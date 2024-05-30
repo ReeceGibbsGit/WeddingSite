@@ -806,6 +806,21 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  {
+    id: 'fa50f926-fec9-405c-8d7c-5f1e1fda864e',
+    guests: [
+      {
+        name: 'Phil Pietersen',
+        isComing: true,
+        id: 'a1bd376a-aa0f-4c1e-a6f6-acb31ad9ad71',
+      },
+      {
+        name: 'Clara Pietersen',
+        isComing: true,
+        id: '4bcdb8e4-cf91-42b8-a9bc-ccc7592b8637',
+      },
+    ],
+  },
 ];
 
 export { INVITES };
