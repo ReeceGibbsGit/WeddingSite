@@ -806,6 +806,46 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  {
+    id: 'fa50f926-fec9-405c-8d7c-5f1e1fda864e',
+    guests: [
+      {
+        name: 'Phil Pietersen',
+        isComing: true,
+        id: 'a1bd376a-aa0f-4c1e-a6f6-acb31ad9ad71',
+      },
+      {
+        name: 'Clara Pietersen',
+        isComing: true,
+        id: '4bcdb8e4-cf91-42b8-a9bc-ccc7592b8637',
+      },
+    ],
+  },
+  {
+    id: '3f2d5c3f-6a6e-49ca-9d05-33263d693d25',
+    guests: [
+      {
+        name: 'Leon Buirski',
+        isComing: true,
+        id: 'e5be7826-77fc-45a9-b71d-cdd070600821',
+      },
+      {
+        name: 'Anthea Buirski',
+        isComing: true,
+        id: 'f8fd6ff8-2088-46ef-9583-1bfc1b394c36',
+      },
+      {
+        name: 'Luke Buirski',
+        isComing: true,
+        id: 'e3c9b94d-8dc8-4356-ad10-1558012e1de7',
+      },
+      {
+        name: 'Alexia Buirski',
+        isComing: true,
+        id: 'b0fe1c7c-e5e2-4084-9d29-ad2acb6afdad',
+      },
+    ],
+  },
 ];
 
 export { INVITES };
