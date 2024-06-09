@@ -846,6 +846,16 @@ const INVITES: Array<Invite> = [
       },
     ],
   },
+  {
+    id: 'c0e26a94-8d41-4a04-9890-c79b32afd802',
+    guests: [
+      {
+        name: 'Rachel Kroukam',
+        isComing: true,
+        id: '1cf65394-8d77-45e8-a1aa-f5f7af353fc0',
+      },
+    ],
+  },
 ];
 
 export { INVITES };
